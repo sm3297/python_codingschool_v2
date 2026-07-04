@@ -281,6 +281,33 @@ input {
 }
 
 /* ===== Error / Success Messages ===== */
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+.password-input-wrapper .input-field {
+  padding-right: 48px;
+}
+.password-toggle-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  z-index: 5;
+}
+.password-toggle-btn:hover {
+  color: var(--purple);
+}
 .error-message {
   background: #FFF0F0;
   color: var(--danger);
