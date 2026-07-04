@@ -153,6 +153,42 @@ export default function StudentDashboard() {
         </div>
       )}
 
+      {/* Problem Set Link */}
+      <h2 className="section-title">📝 실전 문제 풀이</h2>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginBottom: '32px' }}>
+        <div 
+          className="card" 
+          style={{ marginBottom: 0, cursor: 'pointer', borderLeft: '4px solid #10b981', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+          onClick={() => window.open('https://codeup.kr/problemsetsol.php?psid=33&utm_source=chatgpt.com', '_blank')}
+        >
+          <div>
+            <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#263238', marginBottom: '4px' }}>
+              🏆 코드업 파이썬 실전 문제집
+            </div>
+            <div style={{ fontSize: '0.85rem', color: '#546E7A' }}>
+              스테이지에서 배운 내용을 바탕으로 실제 코딩 문제를 풀어보세요!
+            </div>
+          </div>
+          <div style={{ fontSize: '1.5rem', color: '#10b981' }}>↗️</div>
+        </div>
+
+        <div 
+          className="card" 
+          style={{ marginBottom: 0, cursor: 'pointer', borderLeft: '4px solid #3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+          onClick={() => window.open('https://www.programiz.com/python-programming/online-compiler/', '_blank')}
+        >
+          <div>
+            <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#263238', marginBottom: '4px' }}>
+              💻 파이썬 온라인 컴파일러
+            </div>
+            <div style={{ fontSize: '0.85rem', color: '#546E7A' }}>
+              문제집의 코드를 이곳(Programiz)에 붙여넣어 실행하고 테스트해보세요!
+            </div>
+          </div>
+          <div style={{ fontSize: '1.5rem', color: '#3b82f6' }}>↗️</div>
+        </div>
+      </div>
+
       {/* Stages Grid */}
       <h2 className="section-title">🗺️ 스테이지</h2>
       <div className="stages-grid">

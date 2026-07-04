@@ -222,7 +222,15 @@ export default function MissionDetailPage() {
             <img 
               src={mission.image} 
               alt="Mission Concept" 
-              style={{ width: '100%', maxWidth: '600px', borderRadius: '12px', marginBottom: '16px', display: 'block', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} 
+              style={{ 
+                width: '100%', 
+                maxWidth: mission.image.includes('.svg') ? '150px' : '600px', 
+                borderRadius: '12px', 
+                marginBottom: '16px', 
+                display: 'block', 
+                boxShadow: mission.image.includes('.svg') ? 'none' : '0 4px 12px rgba(0,0,0,0.1)',
+                margin: mission.image.includes('.svg') ? '0 auto 24px' : '0 0 16px'
+              }} 
             />
           )}
           <p>{mission.story}</p>
