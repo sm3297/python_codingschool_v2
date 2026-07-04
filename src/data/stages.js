@@ -10,6 +10,7 @@ export const stages = [
       {
         id: "stage1-mission1",
         title: "컴퓨터에게 인사시키기",
+        image: "/images/s1_m1_hello_1783132234563.png",
         rewardCoins: 200,
         rewardExp: 140,
         objective: "print()를 사용해서 컴퓨터 화면에 문장을 출력할 수 있다.",
@@ -40,7 +41,8 @@ export const stages = [
       {
         id: "stage1-mission2",
         title: "나만의 자기소개 화면 만들기",
-        rewardCoins: 220,
+        image: "/images/s1_m2_intro_1783132247862.png",
+        rewardCoins: 200,
         rewardExp: 160,
         objective: "여러 줄의 문장을 출력해서 자기소개 화면을 만들 수 있다.",
         story: "이제 파이썬과 조금 친해졌나요? 이번에는 여러 줄의 코드를 작성해서 나를 소개하는 멋진 카드를 만들어 볼 거예요.",
@@ -70,7 +72,8 @@ export const stages = [
       {
         id: "stage1-mission3",
         title: "앗, 에러가 났어요! (버그 잡기)",
-        rewardCoins: 250,
+        image: "/images/s1_m3_error_1783132258347.png",
+        rewardCoins: 200,
         rewardExp: 180,
         objective: "코드를 작성할 때 자주 발생하는 문법 에러(Syntax Error)를 이해하고 고칠 수 있다.",
         story: "프로그래밍을 하다 보면 빨간색 영어 글씨가 잔뜩 뜨면서 실행이 안 될 때가 있어요. 이것을 '에러(Error)' 또는 '버그(Bug)'라고 불러요. 당황하지 마세요! 프로그래머라면 누구나 겪는 아주 자연스러운 일이랍니다.",
@@ -100,11 +103,12 @@ export const stages = [
       {
         id: "stage1-mission4",
         title: "글자와 숫자 구분하기",
-        rewardCoins: 250,
+        image: "/images/s1_m4_datatypes_1783132282119.png",
+        rewardCoins: 200,
         rewardExp: 180,
         objective: "숫자를 출력할 때와 문자를 출력할 때의 차이를 알고 출력할 수 있다.",
         story: "지금까지는 계속 글자만 화면에 보여줬어요. 그런데 파이썬은 수학 계산도 엄청 잘하는 똑똑한 계산기랍니다! 글자와 숫자는 컴퓨터 안에서 완전히 다르게 다뤄져요.",
-        concept: "1. 문자(글자): 한글이나 영어 같은 문자는 반드시 따옴표(\"\" 또는 '')로 감싸야 합니다.\n2. 숫자: 숫자는 따옴표 없이 그냥 적습니다! 따옴표를 안 써도 컴퓨터가 숫자로 인식해요.\n3. 만약 숫자에 따옴표를 붙이면? 컴퓨터는 그것을 '계산할 수 없는 그냥 글자 모양'으로 생각합니다.",
+        concept: "1. 문자(글자): 한글이나 영어 같은 문자는 반드시 따옴표(\"\" 또는 '')로 감싸야 합니다.\n2. 숫자: 숫자는 따옴표 없이 그냥 적습니다! 따옴표를 안 써도 컴퓨터가 숫자로 인식해요.\n3. 만약 숫자에 따옴표을 붙이면? 컴퓨터는 그것을 '계산할 수 없는 그냥 글자 모양'으로 생각합니다.",
         analogy: "숫자 100과 글자 \"100\"은 다릅니다. 숫자 100은 은행 계좌에 있는 진짜 돈이라면, 글자 \"100\"은 도화지에 그려진 100원짜리 그림과 같아요. 그림은 계산할 수 없죠?",
         code: 'print(2023)\nprint("2023")\nprint(10 + 5)\nprint("10 + 5")',
         explanation: [
@@ -130,7 +134,8 @@ export const stages = [
       {
         id: "stage1-mission5",
         title: "텍스트 아티스트 되기",
-        rewardCoins: 300,
+        image: "/images/s1_m5_textart_1783132293226.png",
+        rewardCoins: 200,
         rewardExp: 220,
         objective: "공백과 특수문자를 활용하여 모양을 만들고 출력할 수 있다.",
         story: "여러 줄의 print()를 마스터한 당신! 이번에는 코드로 그림을 그리는 '텍스트 아티스트'가 되어 봅시다. 키보드의 여러 기호들과 띄어쓰기를 조합하면 멋진 그림을 그릴 수 있어요.",
@@ -159,7 +164,8 @@ export const stages = [
       {
         id: "stage1-mission6",
         title: "파이썬 입문 상장 수여식",
-        rewardCoins: 400,
+        image: "/images/s1_m6_graduation_1783132302247.png",
+        rewardCoins: 200,
         rewardExp: 300,
         objective: "지금까지 배운 print() 활용법을 총동원하여 복잡한 출력물을 완성할 수 있다.",
         story: "축하합니다! 무려 3시간에 걸친 첫 번째 코딩 훈련을 성공적으로 마쳤어요! 이제 여러분은 스스로에게 수여할 '파이썬 입문 상장'을 직접 코딩으로 만들어 볼 거예요.",
@@ -442,6 +448,69 @@ export const stages = [
             answer: 0
           }
         ]
+      },
+      {
+        id: "stage2-mission6",
+        title: "🔥 [킬러 미션] 마법 물약 제조기: 변수 교환",
+        image: "/images/magic_potion_swap_1783132981426.png",
+        isOptional: true,
+        rewardCoins: 400,
+        rewardExp: 300,
+        objective: "두 변수에 들어있는 값을 서로 맞바꿀(Swap) 수 있다.",
+        story: "마법사가 빨간 물약과 파란 물약을 실수로 반대 병에 담았어요! 마법의 임시 변수(temp) 상자를 사용해서 두 물약의 위치를 올바르게 바꿔주세요.",
+        concept: "두 변수의 값을 바꾸려면, 하나의 값을 잠시 보관할 세 번째 변수(temp)가 필요합니다.",
+        analogy: "양손에 사과와 배를 들고 있을 때 서로 위치를 바꾸려면? 책상(temp)에 사과를 잠시 올려두고, 배를 옮긴 다음, 다시 책상에서 사과를 가져와야 하죠!",
+        code: 'red_bottle = "파란 물약"\nblue_bottle = "빨간 물약"\nprint("바꾸기 전:", red_bottle, blue_bottle)\n\n# 임시 상자에 빨간 병의 내용물을 잠시 보관\ntemp = red_bottle\n# 빨간 병에 파란 병의 내용물을 붓기\nred_bottle = blue_bottle\n# 파란 병에 아까 보관했던 내용물(temp)을 붓기\nblue_bottle = temp\n\nprint("바꾼 후:", red_bottle, blue_bottle)',
+        explanation: [
+          "1. temp = red_bottle: 파란 물약을 temp에 보관",
+          "2. red_bottle = blue_bottle: 빨간 물약을 red_bottle로 이동",
+          "3. blue_bottle = temp: 보관했던 파란 물약을 blue_bottle로 이동"
+        ],
+        practice: "위 코드를 실행해보고 변수 교환 원리를 확인해보세요.",
+        challenge: "a = 10, b = 20 일 때, 두 변수의 값을 서로 바꾸는 코드를 작성해보세요.",
+        quizzes: [
+          {
+            question: "두 변수의 값을 바꿀 때 잠시 값을 보관하는 용도로 많이 사용하는 변수의 이름은 주로 무엇인가요?",
+            options: ["temp", "save", "box"],
+            answer: 0
+          },
+          {
+            question: "a = 1, b = 2 일 때, 아무런 임시 변수 없이 바로 a = b를 하면 a의 값은 어떻게 될까요?",
+            options: ["2가 된다", "1이 된다", "서로 바뀐다"],
+            answer: 0
+          }
+        ]
+      },
+      {
+        id: "stage2-mission7",
+        title: "🔥 [킬러 미션] 외계인 통역기: 타입 변환",
+        image: "/images/alien_translator_1783132990970.png",
+        isOptional: true,
+        rewardCoins: 400,
+        rewardExp: 300,
+        objective: "문자열을 숫자로, 숫자를 문자열로 변환할 수 있다.",
+        story: "외계인들이 지구로 놀러왔어요! 그런데 외계인들은 모든 숫자를 따옴표 안에 글자로 적어서 보내네요. 외계인의 글자 숫자를 진짜 숫자로 바꿔서 계산해야 합니다.",
+        concept: "int()를 사용하면 글자를 숫자로 바꿀 수 있고, str()을 사용하면 숫자를 글자로 바꿀 수 있습니다.",
+        analogy: "외국어로 쓰인 숫자를 우리말 숫자로 번역(int)해주는 통역기와 같습니다.",
+        code: 'alien_age = "500"\nhuman_age = int(alien_age)\nprint("외계인 나이 + 10년:", human_age + 10)\n\nnumber = 100\ntext = str(number)\nprint("이것은 글자입니다: " + text)',
+        explanation: [
+          "int(\"500\")은 글자 \"500\"을 계산 가능한 진짜 숫자 500으로 바꿉니다.",
+          "str(100)은 숫자 100을 화면에 출력하기 좋은 글자 \"100\"으로 바꿉니다."
+        ],
+        practice: "외계인이 보낸 '123' 문자를 숫자로 바꾸고 100을 더해보세요.",
+        challenge: "사용자의 나이를 문자열로 입력받았다고 가정하고, 이를 정수로 변환한 뒤 내년 나이를 출력해보세요.",
+        quizzes: [
+          {
+            question: "글자 '10'을 숫자 10으로 바꿔주는 마법의 명령어는 무엇일까요?",
+            options: ["int()", "str()", "print()"],
+            answer: 0
+          },
+          {
+            question: "숫자 50을 글자 '50'으로 바꿔주는 마법의 명령어는 무엇일까요?",
+            options: ["str()", "int()", "number()"],
+            answer: 0
+          }
+        ]
       }
     ]
   },
@@ -606,6 +675,7 @@ export const stages = [
       {
         id: "stage3-mission6",
         title: "🔥 [킬러 미션] 스파이의 비밀 암호문 해독",
+        image: "/images/spy_decoder_1783133010927.png",
         isOptional: true,
         rewardCoins: 1200,
         rewardExp: 600,
@@ -636,6 +706,7 @@ export const stages = [
       {
         id: "stage3-mission7",
         title: "🔥 [킬러 미션] 텍스트 RPG 상태창 만들기",
+        image: "/images/rpg_status_1783133020164.png",
         isOptional: true,
         rewardCoins: 1500,
         rewardExp: 700,
@@ -853,6 +924,7 @@ export const stages = [
       {
         id: "stage4-mission7",
         title: "🔥 [킬러 미션] 외계 행성의 위험한 생물 도감",
+        image: "/images/alien_bestiary_1783133029880.png",
         isOptional: true,
         rewardCoins: 1200,
         rewardExp: 600,
@@ -883,6 +955,7 @@ export const stages = [
       {
         id: "stage4-mission8",
         title: "🔥 [킬러 미션] 도둑맞은 보석함 복구 작전",
+        image: "/images/stolen_jewel_box_1783133046493.png",
         isOptional: true,
         rewardCoins: 1500,
         rewardExp: 700,
@@ -1073,6 +1146,7 @@ export const stages = [
       {
         id: "stage5-mission6",
         title: "🔥 [킬러 미션] 초정밀 폭탄 해체 시뮬레이터",
+        image: "/images/bomb_defusal_1783133055104.png",
         isOptional: true,
         rewardCoins: 1200,
         rewardExp: 600,
@@ -1103,6 +1177,7 @@ export const stages = [
       {
         id: "stage5-mission7",
         title: "🔥 [킬러 미션] 영수증 자동 계산기",
+        image: "/images/receipt_calculator_1783133064641.png",
         isOptional: true,
         rewardCoins: 1500,
         rewardExp: 700,
@@ -1291,6 +1366,7 @@ export const stages = [
       {
         id: "stage6-mission6",
         title: "🔥 [킬러 미션] 우주 왕복선 궤도 계산기",
+        image: "/images/space_shuttle_orbit_1783133081791.png",
         isOptional: true,
         rewardCoins: 1200,
         rewardExp: 600,
@@ -1321,6 +1397,7 @@ export const stages = [
       {
         id: "stage6-mission7",
         title: "🔥 [킬러 미션] 고대 피라미드 블록 개수 맞추기",
+        image: "/images/pyramid_blocks_1783133090454.png",
         isOptional: true,
         rewardCoins: 1500,
         rewardExp: 700,
@@ -1540,6 +1617,7 @@ export const stages = [
       {
         id: "stage7-mission7",
         title: "🔥 [킬러 미션] 미궁 속의 스핑크스 퀴즈",
+        image: "/images/sphinx_quiz_1783133099862.png",
         isOptional: true,
         rewardCoins: 1200,
         rewardExp: 600,
@@ -1570,6 +1648,7 @@ export const stages = [
       {
         id: "stage7-mission8",
         title: "🔥 [킬러 미션] 마법 학교의 기숙사 배정 모자",
+        image: "/images/sorting_hat_1783133118857.png",
         isOptional: true,
         rewardCoins: 1500,
         rewardExp: 700,
@@ -1790,6 +1869,7 @@ export const stages = [
       {
         id: "stage8-mission7",
         title: "🔥 [킬러 미션] 전설의 해커: 암호 강제 돌파 (Brute Force)",
+        image: "/images/hacker_brute_force_1783133127485.png",
         isOptional: true,
         rewardCoins: 1200,
         rewardExp: 600,
