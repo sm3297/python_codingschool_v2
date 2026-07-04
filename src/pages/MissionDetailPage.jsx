@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getUserById, updateUser } from '../api/userApi';
-import { getUserId, setAuth, getAuth } from '../utils/auth';
+import { getUserId, setAuth, getAuth, getRole } from '../utils/auth';
 import { stages } from '../data/stages';
 import { calculateLevel, isStageUnlocked, isStageClear, getUnlockCoins } from '../utils/progress';
 import QuizCard from '../components/QuizCard';
@@ -16,6 +16,7 @@ export default function MissionDetailPage() {
   const [showModal, setShowModal] = useState(false);
   const [alreadyCompleted, setAlreadyCompleted] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [isAllQuizCorrect, setIsAllQuizCorrect] = useState(false);
 
   const stage = stages.find(s => s.id === parseInt(stageId));
   const mission = stage?.missions.find(m => m.id === missionId);
@@ -26,6 +27,21 @@ export default function MissionDetailPage() {
 
   const loadUser = async () => {
     try {
+      if (getRole() === 'teacher') {
+        setUser({
+          id: 'teacher',
+          role: 'teacher',
+          nickname: '선생님 (미리보기)',
+          coins: 99999,
+          exp: 99999,
+          level: 99,
+          completedMissions: stages.flatMap(s => s.missions.map(m => m.id)),
+          unlockedStages: stages.map(s => s.id)
+        });
+        setLoading(false);
+        return;
+      }
+
       const userId = getUserId();
       if (!userId) {
         navigate('/login');
@@ -104,6 +120,21 @@ export default function MissionDetailPage() {
       alert('앗, 정보를 저장하는 중 문제가 생겼어요.\n잠시 후 다시 시도해 주세요.');
     } finally {
       setCompleting(false);
+    }
+  };
+
+  const handleWrongAnswer = async () => {
+    if (!user) return;
+    if (user.role === 'teacher') return; // 선생님 미리보기에서는 패널티 없음
+
+    const newCoins = Math.max(0, (user.coins || 0) - 100);
+    if (newCoins !== user.coins) {
+      try {
+        await updateUser(user.id, { coins: newCoins });
+        setUser(prev => ({ ...prev, coins: newCoins }));
+      } catch (err) {
+        console.error('Failed to deduct coins:', err);
+      }
     }
   };
 
@@ -187,6 +218,13 @@ export default function MissionDetailPage() {
         {/* Story */}
         <div className="mission-section">
           <h2>📖 스토리</h2>
+          {mission.image && (
+            <img 
+              src={mission.image} 
+              alt="Mission Concept" 
+              style={{ width: '100%', maxWidth: '600px', borderRadius: '12px', marginBottom: '16px', display: 'block', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} 
+            />
+          )}
           <p>{mission.story}</p>
         </div>
 
@@ -265,7 +303,12 @@ export default function MissionDetailPage() {
         {/* Quiz */}
         <div className="mission-section">
           <h2>❓ 확인 퀴즈</h2>
-          <QuizCard quizzes={mission.quizzes} />
+          <QuizCard 
+            key={mission.id} 
+            quizzes={mission.quizzes} 
+            onAllCorrect={setIsAllQuizCorrect} 
+            onWrongAnswer={handleWrongAnswer}
+          />
         </div>
 
         {/* Complete Button */}
@@ -273,13 +316,15 @@ export default function MissionDetailPage() {
           <button
             className="btn btn-primary btn-lg"
             onClick={handleComplete}
-            disabled={completing}
+            disabled={completing || (!isComplete && !isAllQuizCorrect)}
             style={{
               padding: '18px 48px',
               fontSize: '1.1rem',
               background: isComplete
                 ? 'linear-gradient(135deg, #4CAF50, #66BB6A)'
-                : 'var(--gradient-purple)'
+                : 'var(--gradient-purple)',
+              opacity: (!isComplete && !isAllQuizCorrect) ? 0.5 : 1,
+              cursor: (!isComplete && !isAllQuizCorrect) ? 'not-allowed' : 'pointer'
             }}
           >
             {completing ? '처리 중...' : isComplete ? '✅ 완료한 미션' : '🎯 미션 완료!'}

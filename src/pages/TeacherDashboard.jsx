@@ -104,8 +104,11 @@ export default function TeacherDashboard() {
         </div>
       </div>
 
-      {/* Refresh Button */}
-      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '16px' }}>
+      {/* Actions */}
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '16px', gap: '10px' }}>
+        <button className="btn btn-primary btn-sm" onClick={() => navigate('/student')}>
+          👁️ 학생용 화면(전체 미션) 미리보기
+        </button>
         <button className="btn btn-secondary btn-sm" onClick={loadStudents}>
           🔄 새로고침
         </button>

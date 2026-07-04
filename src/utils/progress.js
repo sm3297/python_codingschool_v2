@@ -33,7 +33,8 @@ export function calculateLevel(exp) {
 export function isStageClear(stageId, completedMissions = []) {
   const stage = stages.find(s => s.id === stageId);
   if (!stage) return false;
-  return stage.missions.every(m => completedMissions.includes(m.id));
+  const requiredMissions = stage.missions.filter(m => !m.isOptional);
+  return requiredMissions.every(m => completedMissions.includes(m.id));
 }
 
 // 스테이지 해금 여부 확인

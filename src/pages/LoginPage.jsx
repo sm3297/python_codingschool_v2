@@ -98,6 +98,9 @@ export default function LoginPage() {
           </button>
         </form>
 
+        <p className="auth-footer" style={{ marginBottom: '10px' }}>
+          계정을 잊으셨나요? <Link to="/find-account">아이디/비밀번호 찾기</Link>
+        </p>
         <p className="auth-footer">
           아직 계정이 없나요? <Link to="/signup">회원가입하기</Link>
         </p>

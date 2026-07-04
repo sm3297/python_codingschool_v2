@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUserById } from '../api/userApi';
-import { getUserId, getNickname } from '../utils/auth';
+import { getUserId, getNickname, getRole } from '../utils/auth';
 import { getOverallProgress, calculateLevel } from '../utils/progress';
 import { stages } from '../data/stages';
 import StageCard from '../components/StageCard';
@@ -21,6 +21,21 @@ export default function StudentDashboard() {
 
   const loadUser = async () => {
     try {
+      if (getRole() === 'teacher') {
+        setUser({
+          id: 'teacher',
+          role: 'teacher',
+          nickname: '선생님 (미리보기)',
+          coins: 99999,
+          exp: 99999,
+          level: 99,
+          completedMissions: stages.flatMap(s => s.missions.map(m => m.id)),
+          unlockedStages: stages.map(s => s.id)
+        });
+        setLoading(false);
+        return;
+      }
+
       const userId = getUserId();
       if (!userId) {
         navigate('/login');

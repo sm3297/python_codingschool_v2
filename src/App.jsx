@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import FindAccountPage from './pages/FindAccountPage';
 import StudentDashboard from './pages/StudentDashboard';
 import StageDetailPage from './pages/StageDetailPage';
 import MissionDetailPage from './pages/MissionDetailPage';
@@ -15,7 +16,7 @@ import NotFoundPage from './pages/NotFoundPage';
 // Route guard for student pages
 function StudentRoute({ children }) {
   if (!isLoggedIn()) return <Navigate to="/login" replace />;
-  if (isTeacher()) return <Navigate to="/teacher" replace />;
+  // Allow teachers to preview student pages
   return children;
 }
 
@@ -57,6 +58,11 @@ export default function App() {
           <Route path="/signup" element={
             <AuthRoute>
               <SignupPage />
+            </AuthRoute>
+          } />
+          <Route path="/find-account" element={
+            <AuthRoute>
+              <FindAccountPage />
             </AuthRoute>
           } />
 

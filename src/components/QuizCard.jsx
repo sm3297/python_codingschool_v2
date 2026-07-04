@@ -1,13 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function QuizCard({ quizzes }) {
+export default function QuizCard({ quizzes, onAllCorrect, onWrongAnswer }) {
   const [answers, setAnswers] = useState({});
   const [feedback, setFeedback] = useState({});
 
+  useEffect(() => {
+    if (!quizzes || quizzes.length === 0) {
+      if (onAllCorrect) onAllCorrect(true);
+      return;
+    }
+    const allCorrect = quizzes.every((_, qIndex) => feedback[qIndex] === true);
+    if (onAllCorrect) onAllCorrect(allCorrect);
+  }, [feedback, quizzes, onAllCorrect]);
+
   const handleAnswer = (qIndex, optIndex) => {
-    if (answers[qIndex] !== undefined) return;
+    // If already correctly answered, don't allow changing
+    if (feedback[qIndex]) return;
 
     const isCorrect = quizzes[qIndex].answer === optIndex;
+    
+    // If wrong, and it's a new wrong answer they are selecting
+    if (!isCorrect && answers[qIndex] !== optIndex) {
+      if (onWrongAnswer) onWrongAnswer();
+    }
+
     setAnswers(prev => ({ ...prev, [qIndex]: optIndex }));
     setFeedback(prev => ({ ...prev, [qIndex]: isCorrect }));
   };
@@ -22,14 +38,18 @@ export default function QuizCard({ quizzes }) {
           <div className="quiz-options">
             {quiz.options.map((option, optIndex) => {
               let optClass = 'quiz-option';
-              if (answers[qIndex] !== undefined) {
+              
+              if (feedback[qIndex]) {
+                // If this question is already correct
                 optClass += ' disabled';
                 if (optIndex === quiz.answer) {
                   optClass += ' correct';
-                } else if (optIndex === answers[qIndex] && answers[qIndex] !== quiz.answer) {
-                  optClass += ' wrong';
                 }
+              } else if (answers[qIndex] === optIndex && feedback[qIndex] === false) {
+                // If they chose this option and it's wrong (but not disabled, they can try again)
+                optClass += ' wrong';
               }
+              
               return (
                 <button
                   key={optIndex}
