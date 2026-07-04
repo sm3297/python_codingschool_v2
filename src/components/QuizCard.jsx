@@ -3,6 +3,30 @@ import { useState, useEffect } from 'react';
 export default function QuizCard({ quizzes, onAllCorrect, onWrongAnswer }) {
   const [answers, setAnswers] = useState({});
   const [feedback, setFeedback] = useState({});
+  const [shuffledQuizzes, setShuffledQuizzes] = useState([]);
+
+  useEffect(() => {
+    if (!quizzes || quizzes.length === 0) {
+      setShuffledQuizzes([]);
+      return;
+    }
+    const shuffled = quizzes.map(quiz => {
+      const optionsWithIndex = quiz.options.map((opt, i) => ({ text: opt, originalIndex: i }));
+      for (let i = optionsWithIndex.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [optionsWithIndex[i], optionsWithIndex[j]] = [optionsWithIndex[j], optionsWithIndex[i]];
+      }
+      const newAnswerIndex = optionsWithIndex.findIndex(opt => opt.originalIndex === quiz.answer);
+      return {
+        ...quiz,
+        options: optionsWithIndex.map(opt => opt.text),
+        answer: newAnswerIndex
+      };
+    });
+    setShuffledQuizzes(shuffled);
+    setAnswers({});
+    setFeedback({});
+  }, [quizzes]);
 
   useEffect(() => {
     if (!quizzes || quizzes.length === 0) {
@@ -14,12 +38,10 @@ export default function QuizCard({ quizzes, onAllCorrect, onWrongAnswer }) {
   }, [feedback, quizzes, onAllCorrect]);
 
   const handleAnswer = (qIndex, optIndex) => {
-    // If already correctly answered, don't allow changing
     if (feedback[qIndex]) return;
 
-    const isCorrect = quizzes[qIndex].answer === optIndex;
+    const isCorrect = shuffledQuizzes[qIndex].answer === optIndex;
     
-    // If wrong, and it's a new wrong answer they are selecting
     if (!isCorrect && answers[qIndex] !== optIndex) {
       if (onWrongAnswer) onWrongAnswer();
     }
@@ -30,7 +52,7 @@ export default function QuizCard({ quizzes, onAllCorrect, onWrongAnswer }) {
 
   return (
     <div className="quiz-container">
-      {quizzes.map((quiz, qIndex) => (
+      {shuffledQuizzes.map((quiz, qIndex) => (
         <div key={qIndex} className="quiz-item">
           <div className="quiz-question">
             Q{qIndex + 1}. {quiz.question}
@@ -40,13 +62,11 @@ export default function QuizCard({ quizzes, onAllCorrect, onWrongAnswer }) {
               let optClass = 'quiz-option';
               
               if (feedback[qIndex]) {
-                // If this question is already correct
                 optClass += ' disabled';
                 if (optIndex === quiz.answer) {
                   optClass += ' correct';
                 }
               } else if (answers[qIndex] === optIndex && feedback[qIndex] === false) {
-                // If they chose this option and it's wrong (but not disabled, they can try again)
                 optClass += ' wrong';
               }
               

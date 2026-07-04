@@ -1,4 +1,4 @@
-export default function CompleteModal({ rewardCoins, rewardExp, alreadyCompleted, onClose, onNext }) {
+export default function CompleteModal({ rewardCoins, rewardExp, penaltyCoins = 0, alreadyCompleted, onClose, onNext }) {
   if (alreadyCompleted) {
     return (
       <div className="modal-overlay" onClick={onClose}>
@@ -32,7 +32,12 @@ export default function CompleteModal({ rewardCoins, rewardExp, alreadyCompleted
           <p style={{ fontSize: '1.1rem', fontWeight: 700, color: '#FFD166' }}>
             +{rewardCoins} 플레이 코인
           </p>
-          <p style={{ fontSize: '1.1rem', fontWeight: 700, color: '#4ECDC4' }}>
+          {penaltyCoins > 0 && (
+            <p style={{ fontSize: '1.1rem', fontWeight: 700, color: '#FF6B6B', marginTop: '4px' }}>
+              -{penaltyCoins} 차감 코인 (오답 패널티)
+            </p>
+          )}
+          <p style={{ fontSize: '1.1rem', fontWeight: 700, color: '#4ECDC4', marginTop: '4px' }}>
             +{rewardExp} 코드 에너지
           </p>
         </div>

@@ -17,6 +17,8 @@ export default function MissionDetailPage() {
   const [alreadyCompleted, setAlreadyCompleted] = useState(false);
   const [copied, setCopied] = useState(false);
   const [isAllQuizCorrect, setIsAllQuizCorrect] = useState(false);
+  const [penaltyCoins, setPenaltyCoins] = useState(0);
+  const [penaltyToast, setPenaltyToast] = useState({ show: false, key: 0 });
 
   const stage = stages.find(s => s.id === parseInt(stageId));
   const mission = stage?.missions.find(m => m.id === missionId);
@@ -24,6 +26,15 @@ export default function MissionDetailPage() {
   useEffect(() => {
     loadUser();
   }, []);
+
+  useEffect(() => {
+    if (penaltyToast.show) {
+      const timer = setTimeout(() => {
+        setPenaltyToast(prev => ({ ...prev, show: false }));
+      }, 2500);
+      return () => clearTimeout(timer);
+    }
+  }, [penaltyToast.key, penaltyToast.show]);
 
   const loadUser = async () => {
     try {
@@ -126,6 +137,9 @@ export default function MissionDetailPage() {
   const handleWrongAnswer = async () => {
     if (!user) return;
     if (user.role === 'teacher') return; // 선생님 미리보기에서는 패널티 없음
+
+    setPenaltyCoins(prev => prev + 100);
+    setPenaltyToast(prev => ({ show: true, key: prev.key + 1 }));
 
     const newCoins = Math.max(0, (user.coins || 0) - 100);
     if (newCoins !== user.coins) {
@@ -370,10 +384,44 @@ export default function MissionDetailPage() {
         <CompleteModal
           rewardCoins={mission.rewardCoins}
           rewardExp={mission.rewardExp}
+          penaltyCoins={penaltyCoins}
           alreadyCompleted={alreadyCompleted}
           onClose={() => setShowModal(false)}
           onNext={handleNextMission}
         />
+      )}
+
+      {penaltyToast.show && (
+        <div style={{
+          position: 'fixed',
+          top: 0, left: 0, right: 0, bottom: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 9999,
+          pointerEvents: 'none'
+        }}>
+          <div className="animate-fade-in" style={{
+            backgroundColor: 'rgba(255, 107, 107, 0.95)',
+            color: '#fff',
+            padding: '24px 40px',
+            borderRadius: '20px',
+            boxShadow: '0 12px 30px rgba(255, 107, 107, 0.4)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '12px',
+            textAlign: 'center',
+            backdropFilter: 'blur(8px)',
+            border: '2px solid rgba(255, 255, 255, 0.2)'
+          }}>
+            <div style={{ fontSize: '3.5rem', lineHeight: 1 }}>💸</div>
+            <div style={{ fontSize: '1.3rem', fontWeight: 800 }}>앗! 오답이에요</div>
+            <div style={{ fontSize: '1.05rem', opacity: 0.95, fontWeight: 500 }}>
+              플레이 코인이 100 차감되었습니다.
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
