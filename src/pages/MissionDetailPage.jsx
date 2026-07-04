@@ -138,10 +138,10 @@ export default function MissionDetailPage() {
     if (!user) return;
     if (user.role === 'teacher') return; // 선생님 미리보기에서는 패널티 없음
 
-    setPenaltyCoins(prev => prev + 100);
+    setPenaltyCoins(prev => prev + 50);
     setPenaltyToast(prev => ({ show: true, key: prev.key + 1 }));
 
-    const newCoins = Math.max(0, (user.coins || 0) - 100);
+    const newCoins = Math.max(0, (user.coins || 0) - 50);
     if (newCoins !== user.coins) {
       try {
         await updateUser(user.id, { coins: newCoins });
@@ -418,7 +418,8 @@ export default function MissionDetailPage() {
             <div style={{ fontSize: '3.5rem', lineHeight: 1 }}>💸</div>
             <div style={{ fontSize: '1.3rem', fontWeight: 800 }}>앗! 오답이에요</div>
             <div style={{ fontSize: '1.05rem', opacity: 0.95, fontWeight: 500 }}>
-              플레이 코인이 100 차감되었습니다.
+              플레이 코인이 50 차감되었습니다.<br/>
+              남은 코인: {Math.max(0, (user.coins || 0) - 50)}C
             </div>
           </div>
         </div>
