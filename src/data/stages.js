@@ -338,6 +338,7 @@ export const stages = [
       {
         id: "stage2-mission1",
         title: "변수 상자에 값 담기",
+        image: "/images/s2_m1_variable_box.png",
         rewardCoins: 170,
         rewardExp: 170,
         objective: "변수를 사용해서 값을 저장하고 출력할 수 있다.",
@@ -368,6 +369,7 @@ export const stages = [
       {
         id: "stage2-mission2",
         title: "숫자와 글자의 차이 알아보기",
+        image: "/images/s2_m2_num_str.png",
         rewardCoins: 180,
         rewardExp: 180,
         objective: "문자열과 숫자의 차이를 이해할 수 있다.",
@@ -398,6 +400,7 @@ export const stages = [
       {
         id: "stage2-mission3",
         title: "변수 상자의 값 바꾸기",
+        image: "/images/s2_m3_var_swap.png",
         rewardCoins: 190,
         rewardExp: 190,
         objective: "변수에 저장된 값을 새로운 값으로 바꿀 수 있다.",
@@ -428,6 +431,7 @@ export const stages = [
       {
         id: "stage2-mission4",
         title: "앗, 에러가 났어요! (이름 규칙)",
+        image: "/images/s2_m4_naming_error.png",
         rewardCoins: 190,
         rewardExp: 200,
         objective: "변수 이름을 지을 때 지켜야 할 규칙을 알고 에러를 고칠 수 있다.",
@@ -458,6 +462,7 @@ export const stages = [
       {
         id: "stage2-mission5",
         title: "나만의 프로필 변수 모음집",
+        image: "/images/s2_m5_profile.png",
         rewardCoins: 230,
         rewardExp: 250,
         objective: "여러 개의 변수를 활용해 종합적인 정보를 관리하고 출력할 수 있다.",
@@ -561,6 +566,7 @@ export const stages = [
       {
         id: "stage3-mission1",
         title: "문자열 이어 붙이기",
+        image: "/images/s3_m1_str_concat.png",
         rewardCoins: 180,
         rewardExp: 180,
         objective: "문자열을 이어 붙여서 문장을 만들 수 있다.",
@@ -591,6 +597,7 @@ export const stages = [
       {
         id: "stage3-mission2",
         title: "문자열 반복하기",
+        image: "/images/s3_m2_str_repeat.png",
         rewardCoins: 180,
         rewardExp: 180,
         objective: "문자열을 여러 번 반복해서 출력할 수 있다.",
@@ -621,6 +628,7 @@ export const stages = [
       {
         id: "stage3-mission3",
         title: "닉네임 생성기 만들기",
+        image: "/images/s3_m3_nickname_gen.png",
         rewardCoins: 190,
         rewardExp: 200,
         objective: "여러 문자열을 조합해서 닉네임을 만들 수 있다.",
@@ -651,6 +659,7 @@ export const stages = [
       {
         id: "stage3-mission4",
         title: "글자 길이 확인하기",
+        image: "/images/s3_m4_len_func.png",
         rewardCoins: 190,
         rewardExp: 200,
         objective: "len()을 사용해서 문자열의 길이를 확인할 수 있다.",
@@ -681,6 +690,7 @@ export const stages = [
       {
         id: "stage3-mission5",
         title: "텍스트 이모티콘 팩토리",
+        image: "/images/s3_m5_emoticon_factory.png",
         rewardCoins: 210,
         rewardExp: 210,
         objective: "특수문자와 문자열 연산을 결합하여 나만의 이모티콘을 출력할 수 있다.",
@@ -783,6 +793,7 @@ export const stages = [
       {
         id: "stage4-mission1",
         title: "좋아하는 것 목록 만들기",
+        image: "/images/s4_m1_list_create.png",
         rewardCoins: 190,
         rewardExp: 200,
         objective: "리스트를 만들고 리스트 안의 값을 꺼내서 출력할 수 있다.",
@@ -814,6 +825,7 @@ export const stages = [
       {
         id: "stage4-mission2",
         title: "아이템 추가하기",
+        image: "/images/s4_m2_list_append.png",
         rewardCoins: 210,
         rewardExp: 220,
         objective: "append()를 사용해서 리스트에 값을 추가할 수 있다.",
@@ -844,6 +856,7 @@ export const stages = [
       {
         id: "stage4-mission3",
         title: "아이템 변경하고 삭제하기",
+        image: "/images/s4_m3_list_modify.png",
         rewardCoins: 230,
         rewardExp: 230,
         objective: "리스트의 특정 아이템을 수정하거나 삭제할 수 있다.",
@@ -873,6 +886,7 @@ export const stages = [
       {
         id: "stage4-mission4",
         title: "가방이 꽉 찼나요? 길이 확인",
+        image: "/images/s4_m4_list_len.png",
         rewardCoins: 240,
         rewardExp: 240,
         objective: "len()을 사용해 리스트 안의 아이템 개수를 확인할 수 있다.",
@@ -902,6 +916,7 @@ export const stages = [
       {
         id: "stage4-mission5",
         title: "앗, 에러가 났어요! (리스트 에러)",
+        image: "/images/s4_m5_list_error.png",
         rewardCoins: 260,
         rewardExp: 250,
         objective: "리스트에서 발생할 수 있는 IndexError를 이해하고 방지할 수 있다.",
@@ -931,6 +946,7 @@ export const stages = [
       {
         id: "stage4-mission6",
         title: "RPG 게임 인벤토리 완성하기",
+        image: "/images/s4_m6_list_concat.png",
         rewardCoins: 320,
         rewardExp: 300,
         objective: "여러 리스트를 조합하여 게임 인벤토리 화면을 만들 수 있다.",
@@ -1032,6 +1048,7 @@ export const stages = [
       {
         id: "stage5-mission1",
         title: "이름 입력받기",
+        image: "/images/s5_m1_input_name.png",
         rewardCoins: 210,
         rewardExp: 220,
         objective: "input()을 사용해서 사용자의 입력을 받을 수 있다.",
