@@ -907,6 +907,67 @@ export const stages = [
         ]
       },
       {
+        id: "stage3-mission-fstring",
+        title: "마법의 편지 템플릿: f-string",
+        image: "/images/s3_m_fstring.png",
+        rewardCoins: 250,
+        rewardExp: 300,
+        objective: "f-string을 사용하여 문자열 안에 변수를 쉽고 깔끔하게 넣을 수 있다.",
+        story: "친구들에게 초대장을 보내야 하는데, 이름과 레벨만 바꿔서 여러 장을 써야 합니다. 매번 + 기호와 따옴표를 쓰려니 너무 힘드네요! 파이썬의 최신 마법인 'f-string'을 배워서 빈칸이 자동으로 채워지는 마법의 편지 템플릿을 만들어보세요.",
+        concept: "문자열 앞에 소문자 f를 붙이고, 문자열 안에 중괄호 {}를 써서 변수 이름을 넣으면, 그 자리에 변수의 값이 마법처럼 쏙 들어갑니다.\n예: f\"안녕 {name}!\"",
+        analogy: "가운데가 뻥 뚫려있는 도장 템플릿을 만들고, 구멍({ })에 원하는 글자를 쏙쏙 끼워 넣어 한 번에 찍어내는 것과 같습니다.",
+        code: 'name = "코딩용사"\nlevel = 15\n\n# 기존의 힘들었던 방식 (+ 기호와 따옴표 파티)\nold_msg = "환영합니다, " + name + "님! 현재 레벨은 " + str(level) + "입니다."\nprint(old_msg)\n\n# 새롭고 강력한 f-string 마법!\nnew_msg = f"환영합니다, {name}님! 현재 레벨은 {level}입니다."\nprint(new_msg)',
+        explanation: [
+          "f-string을 쓰면 번거롭게 + 를 쓰거나 str()로 변환할 필요가 없습니다.",
+          "문자열 앞에 반드시 f를 붙여야 합니다.",
+          "{} 안에 들어간 변수는 자동으로 값이 문자로 변환되어 출력됩니다."
+        ],
+        practice: "자신의 이름과 나이를 변수에 넣고, f-string을 사용해 멋진 자기소개 문장을 출력해 보세요.",
+        challenge: "게임 캐릭터의 체력(hp)과 마나(mp)를 변수로 만들고, f-string 한 줄로 상태창 메세지를 출력해 보세요.",
+        quizzes: [
+          {
+            question: "문자열 안에 변수를 편리하게 넣기 위해 문자열 맨 앞에 붙이는 알파벳은 무엇인가요?",
+            options: ["f", "s", "p"],
+            answer: 0
+          },
+          {
+            question: 'age = 10 일 때, f"나는 {age}살이다" 를 실행하면 어떻게 출력될까요?',
+            options: ["나는 10살이다", "나는 {age}살이다", "에러가 난다"],
+            answer: 0
+          }
+        ]
+      },
+      {
+        id: "stage3-mission-replace",
+        title: "오염된 글자 정화하기: replace()",
+        image: "/images/s3_m_replace.png",
+        rewardCoins: 260,
+        rewardExp: 310,
+        objective: "문자열의 replace() 함수를 사용하여 특정 단어를 찾아 다른 단어로 바꿀 수 있다.",
+        story: "악당 해커가 데이터베이스에 침입해서 모든 '파이썬'이라는 단어를 '에러'로 바꿔버렸어요! 정화 마법 `replace()`를 사용해서 오염된 단어를 다시 원래대로 깨끗하게 고쳐놓아야 합니다.",
+        concept: "문자열 뒤에 .replace('찾을단어', '바꿀단어') 를 붙여주면, 문자열 안에 있는 모든 '찾을단어'가 '바꿀단어'로 한꺼번에 변경됩니다.",
+        analogy: "문서에서 '찾아서 바꾸기(Ctrl+H)' 기능을 사용하는 것과 똑같습니다.",
+        code: 'bad_text = "이것은 에러입니다. 에러는 어렵습니다."\nprint("정화 전:", bad_text)\n\n# "에러"라는 단어를 찾아서 "파이썬"으로 정화!\nclean_text = bad_text.replace("에러", "파이썬")\n\nprint("정화 후:", clean_text)',
+        explanation: [
+          "bad_text.replace(\"에러\", \"파이썬\") 은 bad_text 안에 있는 모든 '에러'를 찾아 '파이썬'으로 바꿉니다.",
+          "원본 bad_text는 그대로 남아있기 때문에, 바뀐 결과를 clean_text라는 새로운 변수에 저장해야 합니다."
+        ],
+        practice: "위 코드를 실행해 글자가 어떻게 바뀌는지 확인해 보세요.",
+        challenge: "문장에 있는 나쁜 욕설(예: '바보')을 찾아 예쁜 말(예: '천재')로 바꾸는 채팅 필터링 코드를 만들어보세요.",
+        quizzes: [
+          {
+            question: "문자열에서 특정 글자를 찾아 다른 글자로 바꿔주는 마법의 함수는 무엇인가요?",
+            options: [".replace()", ".find()", ".change()"],
+            answer: 0
+          },
+          {
+            question: '"바나나나".replace("나", "다") 의 결과는 무엇일까요?',
+            options: ["바다다다", "바나다다", "바다나나"],
+            answer: 0
+          }
+        ]
+      },
+      {
         id: "stage3-mission6",
         title: "🔥 [킬러 미션] 스파이의 비밀 암호문 해독",
         image: "/images/spy_decoder_1783133010927.png",
