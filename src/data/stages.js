@@ -1751,6 +1751,7 @@ export const stages = [
       {
         id: "stage7-mission4",
         title: "논리 연산자 (and, or)",
+        image: "/images/s7_m4_logic.png",
         rewardCoins: 300,
         rewardExp: 300,
         objective: "and와 or 논리 연산자를 사용하여 복잡한 조건을 만들 수 있다.",
@@ -1780,6 +1781,7 @@ export const stages = [
       {
         id: "stage7-mission5",
         title: "앗, 에러가 났어요! (들여쓰기의 마법)",
+        image: "/images/s7_m5_indent.png",
         rewardCoins: 320,
         rewardExp: 310,
         objective: "파이썬에서 들여쓰기(Indentation)의 중요성을 알고 IndentationError를 고칠 수 있다.",
@@ -1809,6 +1811,7 @@ export const stages = [
       {
         id: "stage7-mission6",
         title: "스토리 방탈출 게임",
+        image: "/images/s7_m6_story.png",
         rewardCoins: 370,
         rewardExp: 350,
         objective: "if, elif, else와 입력을 종합하여 선택형 텍스트 게임을 만들 수 있다.",
@@ -1910,6 +1913,7 @@ export const stages = [
       {
         id: "stage8-mission1",
         title: "같은 문장 여러 번 출력하기",
+        image: "/images/s8_m1_for_loop.png",
         rewardCoins: 270,
         rewardExp: 280,
         objective: "for 반복문을 사용해서 같은 명령을 여러 번 실행할 수 있다.",
@@ -1940,6 +1944,7 @@ export const stages = [
       {
         id: "stage8-mission2",
         title: "숫자 맞히기 게임 만들기",
+        image: "/images/s8_m2_number_guess.png",
         rewardCoins: 320,
         rewardExp: 350,
         objective: "while 반복문과 if문을 함께 사용해서 간단한 게임을 만들 수 있다.",
@@ -1971,6 +1976,7 @@ export const stages = [
       {
         id: "stage8-mission3",
         title: "숫자 카운트다운",
+        image: "/images/s8_m3_countdown.png",
         rewardCoins: 340,
         rewardExp: 360,
         objective: "while문을 사용하여 변수의 값을 줄여가며 카운트다운을 할 수 있다.",
@@ -2001,6 +2007,7 @@ export const stages = [
       {
         id: "stage8-mission4",
         title: "리스트와 함께 빙글빙글",
+        image: "/images/s8_m4_list_loop.png",
         rewardCoins: 360,
         rewardExp: 370,
         objective: "for문을 사용하여 리스트의 모든 요소를 순회할 수 있다.",
@@ -2031,6 +2038,7 @@ export const stages = [
       {
         id: "stage8-mission5",
         title: "끝나지 않는 무한루프",
+        image: "/images/s8_m5_infinite_loop.png",
         rewardCoins: 370,
         rewardExp: 380,
         objective: "의도치 않은 무한루프를 경험하고 해결하는 방법을 배운다.",
@@ -2060,6 +2068,7 @@ export const stages = [
       {
         id: "stage8-mission6",
         title: "구구단 출력기 완성",
+        image: "/images/s8_m6_gugudan.png",
         rewardCoins: 410,
         rewardExp: 400,
         objective: "사용자 입력과 for문을 결합하여 실용적인 반복 프로그램을 완성할 수 있다.",
@@ -2122,6 +2131,7 @@ export const stages = [
       {
         id: "stage8-mission8",
         title: "🔥 [킬러 미션] 별 찍기 마스터: 다이아몬드 건설",
+        image: "/images/s8_m8_star_pyramid.png",
         isOptional: true,
         rewardCoins: 500,
         rewardExp: 700,
