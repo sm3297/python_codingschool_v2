@@ -460,6 +460,38 @@ export const stages = [
         ]
       },
       {
+        id: "stage2-mission-float",
+        title: "소수점 숫자 다루기",
+        image: "/images/s2_m_float.png",
+        rewardCoins: 210,
+        rewardExp: 220,
+        objective: "소수점이 있는 숫자인 float을 변수에 저장하고 출력할 수 있다.",
+        story: "지금까지는 정수와 문자열만 다루었어요. 하지만 세상에는 160.5cm처럼 소수점이 있는 숫자도 아주 많답니다. 파이썬에서 소수점이 있는 숫자를 어떻게 다루는지 알아볼까요?",
+        concept: "age = 14는 정수형 int입니다.\nheight = 160.5는 실수형 float입니다.\nname = \"민수\"는 문자열 str입니다.\n정수는 소수점이 없는 숫자이고, 실수는 소수점이 있는 숫자입니다.",
+        analogy: "정수(int)는 사람 수나 자동차 대수처럼 딱 떨어지는 개수를 셀 때 쓰고, 실수(float)는 키나 몸무게처럼 소수점 아래까지 정확히 잴 때 써요.",
+        code: 'age = 14\nheight = 160.5\nname = "민수"\n\nprint(age)\nprint(height)\nprint(name)',
+        explanation: [
+          "age = 14는 정수형 int입니다.",
+          "height = 160.5는 실수형 float입니다.",
+          "name = \"민수\"는 문자열 str입니다.",
+          "정수는 소수점이 없는 숫자이고, 실수는 소수점이 있는 숫자입니다."
+        ],
+        practice: "위 코드를 실행해 보고, 정수, 실수, 문자열이 잘 출력되는지 확인해 보세요.",
+        challenge: "캐릭터의 이름, 나이, 키를 각각 변수에 저장하고 출력해보세요.\n단, 키는 160.5처럼 소수점이 있는 숫자로 저장해보세요.",
+        quizzes: [
+          {
+            question: "160.5 처럼 소수점이 있는 숫자를 파이썬에서는 무엇이라고 부를까요?",
+            options: ["float (실수)", "int (정수)", "str (문자열)"],
+            answer: 0
+          },
+          {
+            question: "다음 중 실수형(float) 데이터는 무엇일까요?",
+            options: ["3.14", "100", '"50.5"'],
+            answer: 0
+          }
+        ]
+      },
+      {
         id: "stage2-mission5",
         title: "나만의 프로필 변수 모음집",
         image: "/images/s2_m5_profile.png",
