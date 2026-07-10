@@ -460,6 +460,37 @@ export const stages = [
         ]
       },
       {
+        id: "stage2-mission-snake",
+        title: "멋진 이름표 달기: 스네이크 케이스",
+        image: "/images/s2_m_snake.png",
+        rewardCoins: 200,
+        rewardExp: 210,
+        objective: "변수 이름을 지을 때 개발자들이 즐겨 쓰는 snake_case 표기법을 이해하고 사용할 수 있다.",
+        story: "파이썬 개발자들은 변수 이름을 지을 때, 단어와 단어 사이를 띄어쓰기 대신 밑줄(_)로 연결하는 것을 좋아해요. 그 모습이 마치 뱀(snake)이 기어가는 모양 같다고 해서 '스네이크 케이스'라고 부른답니다!",
+        concept: "my_score, user_name 처럼 모두 소문자로 적고, 단어 사이를 _(밑줄)로 이어주는 것이 스네이크 케이스입니다.\n파이썬에서 가장 널리 쓰이는 표준 약속이에요.",
+        analogy: "이름표에 글씨를 쓸 때, 단어들이 서로 부딪히지 않게 중간에 뱀 한 마리(_)를 눕혀서 공간을 띄워주는 것과 같아요.",
+        code: 'my_best_score = 100\nplayer_health = 50\n\nprint("최고 점수:", my_best_score)\nprint("현재 체력:", player_health)',
+        explanation: [
+          "my_best_score는 my, best, score 세 단어를 _로 연결했습니다.",
+          "player_health도 player와 health 두 단어를 _로 연결했습니다.",
+          "이렇게 하면 변수 이름이 길어져도 아주 쉽게 읽을 수 있어요."
+        ],
+        practice: "위 코드를 실행해 보고, 스네이크 케이스로 지어진 변수들이 잘 출력되는지 확인해 보세요.",
+        challenge: "자신의 가장 친한 친구 이름을 my_best_friend 라는 변수에 저장하고 출력해보세요.",
+        quizzes: [
+          {
+            question: "단어 사이를 밑줄(_)로 연결하는 변수 이름 짓기 방식을 부르는 귀여운 이름은?",
+            options: ["스네이크 케이스", "타이거 케이스", "도그 케이스"],
+            answer: 0
+          },
+          {
+            question: "다음 중 스네이크 케이스 규칙을 가장 잘 지킨 변수 이름은?",
+            options: ["my_apple_count", "MyAppleCount", "my apple count"],
+            answer: 0
+          }
+        ]
+      },
+      {
         id: "stage2-mission-float",
         title: "소수점 숫자 다루기",
         image: "/images/s2_m_float.png",
@@ -487,6 +518,68 @@ export const stages = [
           {
             question: "다음 중 실수형(float) 데이터는 무엇일까요?",
             options: ["3.14", "100", '"50.5"'],
+            answer: 0
+          }
+        ]
+      },
+      {
+        id: "stage2-mission-type",
+        title: "변수 상자 속성 알아보기 (type 함수)",
+        image: "/images/s2_m_type.png",
+        rewardCoins: 210,
+        rewardExp: 220,
+        objective: "type() 함수를 사용하여 변수에 들어있는 값의 자료형(int, float, str)을 확인할 수 있다.",
+        story: "변수 상자 안에 들어있는 값이 진짜로 정수인지, 실수인지, 문자열인지 헷갈릴 때가 있나요? 파이썬에는 상자 안을 꿰뚫어 보는 '마법의 돋보기'가 있어요. 바로 type() 이라는 함수랍니다!",
+        concept: "type(변수명)을 사용하면, 그 변수 안에 들어있는 데이터의 종류(자료형)를 알려줍니다.\n- <class 'int'> : 정수\n- <class 'float'> : 실수\n- <class 'str'> : 문자열",
+        analogy: "우리가 겉모습만 보고 헷갈리는 상자에 마법의 돋보기를 갖다 대면, '이 안에는 글자가 들어있습니다!' 하고 정체를 알려주는 것과 같아요.",
+        code: 'age = 14\nheight = 160.5\nname = "민수"\n\nprint(type(age))\nprint(type(height))\nprint(type(name))',
+        explanation: [
+          "type(age)를 실행하면 age가 정수이므로 int라고 알려줍니다.",
+          "type(height)는 height가 실수이므로 float이라고 알려줍니다.",
+          "type(name)은 name이 글자이므로 str이라고 알려줍니다."
+        ],
+        practice: "위 코드를 실행해 보고, 마법의 돋보기가 알려주는 세 가지 자료형(int, float, str)을 확인해 보세요.",
+        challenge: "my_mystery_box = \"100\" 이라는 변수를 만들고, type() 함수를 써서 이 상자 안에 든 것이 숫자인지 글자인지 확인해 보세요.",
+        quizzes: [
+          {
+            question: "변수 안에 들어있는 값의 종류(자료형)를 확인하고 싶을 때 사용하는 마법의 돋보기 명령어는?",
+            options: ["type()", "print()", "find()"],
+            answer: 0
+          },
+          {
+            question: "type(\"안녕\") 을 실행하면 어떤 결과가 나올까요?",
+            options: ["str (문자열)", "int (정수)", "float (실수)"],
+            answer: 0
+          }
+        ]
+      },
+      {
+        id: "stage2-mission-bool",
+        title: "O/X 퀴즈: 참과 거짓 상자",
+        image: "/images/s2_m_bool.png",
+        rewardCoins: 220,
+        rewardExp: 230,
+        objective: "True, False 값을 나타내는 불리언(Boolean) 자료형을 변수에 저장할 수 있다.",
+        story: "게임에서 캐릭터가 독에 걸렸나요? 열쇠를 가지고 있나요? 이런 질문의 대답은 딱 두 가지, '예(True)' 아니면 '아니요(False)' 뿐입니다. 파이썬에서는 이런 값을 불리언(Boolean)이라고 해요.",
+        concept: "파이썬에서는 참을 True, 거짓을 False 라고 적습니다.\n반드시 첫 글자를 대문자로 써야 컴퓨터가 특별한 값으로 인식해요. (true나 false라고 쓰면 에러가 납니다!)",
+        analogy: "상자 안에 숫자가 아니라, 초록색 O 팻말(True)이나 빨간색 X 팻말(False)을 하나씩 넣어두는 것과 같아요.",
+        code: 'has_key = True\nis_poisoned = False\n\nprint("열쇠가 있나요?", has_key)\nprint("독에 걸렸나요?", is_poisoned)\nprint("type 확인:", type(has_key))',
+        explanation: [
+          "has_key = True : 열쇠가 있다(참)는 뜻입니다.",
+          "is_poisoned = False : 독에 걸리지 않았다(거짓)는 뜻입니다.",
+          "type()으로 확인해보면 이 특별한 값들을 'bool' 이라고 부른다는 것을 알 수 있어요."
+        ],
+        practice: "위 코드를 실행해서 True와 False가 어떻게 출력되는지 확인해 보세요.",
+        challenge: "is_boy 라는 변수를 만들고 여러분의 성별에 맞게 True나 False를 넣어보세요. 그리고 is_student 라는 변수에는 True를 넣고 두 변수를 모두 출력해보세요.",
+        quizzes: [
+          {
+            question: "파이썬에서 '참'을 의미하는 특별한 값은 무엇일까요? (대소문자 주의!)",
+            options: ["True", "true", "TRUE"],
+            answer: 0
+          },
+          {
+            question: "파이썬에서 '참(True)'과 '거짓(False)'을 다루는 자료형의 이름은?",
+            options: ["불리언 (bool)", "정수 (int)", "문자열 (str)"],
             answer: 0
           }
         ]
@@ -581,6 +674,37 @@ export const stages = [
           {
             question: "숫자 50을 글자 '50'으로 바꿔주는 마법의 명령어는 무엇일까요?",
             options: ["str()", "int()", "number()"],
+            answer: 0
+          }
+        ]
+      },
+      {
+        id: "stage2-mission-multi",
+        title: "🔥 [킬러 미션] 파이썬의 사기 스킬: 다중 할당",
+        isOptional: true,
+        image: "/images/s2_m_multi.png",
+        rewardCoins: 350,
+        rewardExp: 350,
+        objective: "한 줄의 코드로 여러 개의 변수를 동시에 만들고 값을 할당할 수 있다.",
+        story: "만약 변수 100개를 한 번에 만들어야 한다면 코드가 너무 길어지겠죠? 훌륭한 마법사는 손짓 한 번에 여러 개의 마법을 부릴 수 있어요. 파이썬만이 가진 아주 강력하고 편리한 마법 스킬, '다중 할당'을 배워봅시다!",
+        concept: "a, b = 10, 20 처럼 쉼표를 사용하면 왼쪽의 변수들과 오른쪽의 값들이 순서대로 짝을 이루어 한 번에 저장됩니다.",
+        analogy: "여러 개의 상자를 한 줄로 쫙 깔아두고, 양손으로 여러 개의 물건을 동시에 각각의 상자에 던져 넣는 묘기와 같습니다.",
+        code: 'name, age, is_student = "루시", 15, True\n\nprint("이름:", name)\nprint("나이:", age)\nprint("학생인가요?", is_student)\n\n# 같은 값을 여러 변수에 넣을 수도 있어요!\nx = y = z = 100\nprint("x, y, z의 값은 모두", x, "입니다!")',
+        explanation: [
+          "name에는 '루시', age에는 15, is_student에는 True가 순서대로 한 번에 들어갑니다.",
+          "x = y = z = 100 은 세 변수 모두에 똑같이 100이라는 값을 넣는 마법입니다."
+        ],
+        practice: "위 코드를 실행해 보고 한 줄 만에 3개의 변수가 어떻게 만들어졌는지 확인해 보세요.",
+        challenge: "a, b, c 라는 세 개의 변수를 한 줄에 만들고, 각각 10, 20, 30을 넣은 뒤 세 숫자를 모두 더한 값을 출력해보세요.",
+        quizzes: [
+          {
+            question: "a, b = 5, 10 을 실행하면 b에는 어떤 값이 저장되나요?",
+            options: ["10", "5", "15"],
+            answer: 0
+          },
+          {
+            question: "이 킬러 미션에서 배운, 한 줄에 여러 개의 변수를 만드는 파이썬의 기술 이름은 무엇인가요?",
+            options: ["다중 할당", "변수 삭제", "타입 변환"],
             answer: 0
           }
         ]
@@ -1111,6 +1235,7 @@ export const stages = [
       {
         id: "stage5-mission2",
         title: "친구 소개 카드 만들기",
+        image: "/images/s5_m2_intro_card.png",
         rewardCoins: 230,
         rewardExp: 240,
         objective: "여러 개의 입력값을 받아서 소개 카드를 만들 수 있다.",
@@ -1141,6 +1266,7 @@ export const stages = [
       {
         id: "stage5-mission3",
         title: "숫자 입력받아 계산하기",
+        image: "/images/s5_m3_calc_age.png",
         rewardCoins: 230,
         rewardExp: 240,
         objective: "input()으로 받은 값을 int()로 바꿔 계산할 수 있다.",
@@ -1171,6 +1297,7 @@ export const stages = [
       {
         id: "stage5-mission4",
         title: "MBTI 설문조사 봇 만들기",
+        image: "/images/s5_m4_mbti_bot.png",
         rewardCoins: 250,
         rewardExp: 260,
         objective: "연쇄적인 input() 질문을 통해 응답을 수집하고 결과를 출력할 수 있다.",
@@ -1201,6 +1328,7 @@ export const stages = [
       {
         id: "stage5-mission5",
         title: "비밀번호 확인기",
+        image: "/images/s5_m5_password.png",
         rewardCoins: 280,
         rewardExp: 280,
         objective: "사용자로부터 입력받은 값을 기존 변수와 시각적으로 비교해볼 수 있다.",
@@ -1303,6 +1431,7 @@ export const stages = [
       {
         id: "stage6-mission1",
         title: "용돈 계산기 만들기",
+        image: "/images/s6_m1_allowance.png",
         rewardCoins: 230,
         rewardExp: 240,
         objective: "산술 연산자를 사용해서 간단한 계산을 할 수 있다.",
@@ -1333,6 +1462,7 @@ export const stages = [
       {
         id: "stage6-mission2",
         title: "친구들과 나눠 내기 계산기",
+        image: "/images/s6_m2_split_bill.png",
         rewardCoins: 250,
         rewardExp: 260,
         objective: "나눗셈을 사용해서 한 명당 내야 할 금액을 계산할 수 있다.",
@@ -1363,6 +1493,7 @@ export const stages = [
       {
         id: "stage6-mission3",
         title: "나머지와 몫 계산하기",
+        image: "/images/s6_m3_mod_div.png",
         rewardCoins: 270,
         rewardExp: 270,
         objective: "몫(//)과 나머지(%) 연산자를 이해하고 활용할 수 있다.",
@@ -1392,6 +1523,7 @@ export const stages = [
       {
         id: "stage6-mission4",
         title: "앗, 에러가 났어요! (연산 에러)",
+        image: "/images/s6_m4_math_error.png",
         rewardCoins: 280,
         rewardExp: 280,
         objective: "계산할 때 발생하는 오류(ZeroDivisionError, TypeError)를 잡을 수 있다.",
@@ -1421,6 +1553,7 @@ export const stages = [
       {
         id: "stage6-mission5",
         title: "학교 성적 평균 계산기",
+        image: "/images/s6_m5_average.png",
         rewardCoins: 340,
         rewardExp: 320,
         objective: "입력받은 여러 숫자를 산술 연산자를 이용해 총합과 평균으로 계산할 수 있다.",
@@ -1523,6 +1656,7 @@ export const stages = [
       {
         id: "stage7-mission1",
         title: "조건에 따라 결과 바꾸기",
+        image: "/images/s7_m1_if_else.png",
         rewardCoins: 250,
         rewardExp: 260,
         objective: "if와 else를 사용해서 조건에 따라 다른 결과를 출력할 수 있다.",
@@ -1554,6 +1688,7 @@ export const stages = [
       {
         id: "stage7-mission2",
         title: "점수 판정기 만들기",
+        image: "/images/s7_m2_score.png",
         rewardCoins: 270,
         rewardExp: 280,
         objective: "점수를 입력받아 합격과 불합격을 판정할 수 있다.",
@@ -1585,6 +1720,7 @@ export const stages = [
       {
         id: "stage7-mission3",
         title: "elif로 여러 갈림길 만들기",
+        image: "/images/s7_m3_elif.png",
         rewardCoins: 280,
         rewardExp: 290,
         objective: "elif를 사용하여 3개 이상의 다중 조건을 처리할 수 있다.",
