@@ -16,7 +16,7 @@ export default function LandingPage() {
           </p>
           <div className="hero-buttons">
             <Link to="/signup" className="btn-hero-primary">
-              🚀 시작하기
+              시작하기
             </Link>
             <Link to="/login" className="btn-hero-secondary">
               로그인

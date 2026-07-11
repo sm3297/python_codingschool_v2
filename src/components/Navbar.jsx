@@ -21,7 +21,7 @@ export default function Navbar() {
         <span>파이썬 플레이그라운드</span>
       </Link>
       <div className="navbar-links">
-        <Link to="/">🏠 홈</Link>
+        <Link to="/">홈</Link>
         {!loggedIn && (
           <>
             <Link to="/login">로그인</Link>

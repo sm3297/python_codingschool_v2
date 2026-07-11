@@ -138,6 +138,20 @@ export default function LoginPage() {
         <p className="auth-footer">
           아직 계정이 없나요? <Link to="/signup">회원가입하기</Link>
         </p>
+
+        <div style={{ marginTop: '24px', padding: '16px', background: '#FAFAFF', border: '1px solid #E2E8F0', borderRadius: '12px', textAlign: 'center' }}>
+          <p style={{ margin: '0 0 12px 0', fontSize: '0.9rem', color: '#546E7A', fontWeight: 'bold' }}>
+            💡 가입 전, 마법 학교를 체험해 보세요!
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', fontSize: '0.85rem' }}>
+            <div style={{ background: '#fff', padding: '6px 12px', borderRadius: '6px', border: '1px solid #E2E8F0', color: '#546E7A' }}>
+              아이디 <strong style={{ color: '#6C63FF', marginLeft: '4px' }}>test</strong>
+            </div>
+            <div style={{ background: '#fff', padding: '6px 12px', borderRadius: '6px', border: '1px solid #E2E8F0', color: '#546E7A' }}>
+              비밀번호 <strong style={{ color: '#6C63FF', marginLeft: '4px' }}>test</strong>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
