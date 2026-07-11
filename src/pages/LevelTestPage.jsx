@@ -270,6 +270,17 @@ export default function LevelTestPage() {
               title="Python Compiler"
             ></iframe>
           </div>
+          <div style={{ marginTop: '12px', textAlign: 'right' }}>
+            <a 
+              href="https://www.programiz.com/python-programming/online-compiler/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-sm btn-mint"
+              style={{ fontSize: '0.85rem' }}
+            >
+              💻 컴파일러 새 창으로 열기
+            </a>
+          </div>
         </div>
 
         {stepData.hints && stepData.hints.length > 0 && (
