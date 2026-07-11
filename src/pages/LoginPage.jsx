@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getUserByUsername } from '../api/userApi';
-import { setAuth, TEACHER_CREDENTIALS } from '../utils/auth';
+import { setAuth, TEACHER_CREDENTIALS, TEST_CREDENTIALS } from '../utils/auth';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -30,6 +30,19 @@ export default function LoginPage() {
         nickname: '선생님'
       });
       navigate('/teacher');
+      return;
+    }
+
+    // Check test credentials
+    if (username === TEST_CREDENTIALS.username && password === TEST_CREDENTIALS.password) {
+      setAuth({
+        isLoggedIn: true,
+        role: 'test',
+        userId: 'test_user',
+        username: TEST_CREDENTIALS.username,
+        nickname: '테스트학생'
+      });
+      navigate('/level-test');
       return;
     }
 

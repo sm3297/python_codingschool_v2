@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { isLoggedIn, isTeacher, isStudent, getNickname, clearAuth } from '../utils/auth';
+import { isLoggedIn, isTeacher, isStudent, getNickname, clearAuth, getRole } from '../utils/auth';
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -7,6 +7,7 @@ export default function Navbar() {
   const teacher = isTeacher();
   const student = isStudent();
   const nickname = getNickname();
+  const isTestUser = getRole() === 'test';
 
   const handleLogout = () => {
     clearAuth();
@@ -37,6 +38,12 @@ export default function Navbar() {
         {teacher && (
           <>
             <Link to="/teacher">학생 관리</Link>
+            <button className="logout-btn" onClick={handleLogout}>로그아웃</button>
+          </>
+        )}
+        {isTestUser && (
+          <>
+            <span style={{ margin: '0 10px', opacity: 0.8 }}>테스트 계정</span>
             <button className="logout-btn" onClick={handleLogout}>로그아웃</button>
           </>
         )}

@@ -52,3 +52,8 @@ export const TEACHER_CREDENTIALS = {
   username: 'seongmin',
   password: '1'
 };
+
+export const TEST_CREDENTIALS = {
+  username: 'test',
+  password: 'test'
+};

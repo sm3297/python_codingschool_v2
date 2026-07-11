@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { isLoggedIn, isTeacher, isStudent } from './utils/auth';
+import { isLoggedIn, isTeacher, isStudent, getRole } from './utils/auth';
 import Navbar from './components/Navbar';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
@@ -11,11 +11,13 @@ import MissionDetailPage from './pages/MissionDetailPage';
 import ProfilePage from './pages/ProfilePage';
 import TeacherDashboard from './pages/TeacherDashboard';
 import StudentDetailForTeacher from './pages/StudentDetailForTeacher';
+import LevelTestPage from './pages/LevelTestPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 // Route guard for student pages
 function StudentRoute({ children }) {
   if (!isLoggedIn()) return <Navigate to="/login" replace />;
+  if (getRole() === 'test') return <Navigate to="/level-test" replace />;
   // Allow teachers to preview student pages
   return children;
 }
@@ -32,6 +34,7 @@ function AuthRoute({ children }) {
   if (isLoggedIn()) {
     if (isTeacher()) return <Navigate to="/teacher" replace />;
     if (isStudent()) return <Navigate to="/student" replace />;
+    if (getRole() === 'test') return <Navigate to="/level-test" replace />;
   }
   return children;
 }
@@ -98,6 +101,11 @@ export default function App() {
             <TeacherRoute>
               <StudentDetailForTeacher />
             </TeacherRoute>
+          } />
+
+          {/* Level Test */}
+          <Route path="/level-test" element={
+            <LevelTestPage />
           } />
 
           {/* 404 */}

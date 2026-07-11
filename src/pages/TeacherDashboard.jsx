@@ -109,6 +109,9 @@ export default function TeacherDashboard() {
         <button className="btn btn-primary btn-sm" onClick={() => navigate('/student')}>
           👁️ 학생용 화면(전체 미션) 미리보기
         </button>
+        <button className="btn" style={{ background: '#FF6B6B', color: 'white' }} onClick={() => navigate('/level-test')}>
+          🎓 레벨 테스트 미리보기
+        </button>
         <button className="btn btn-secondary btn-sm" onClick={loadStudents}>
           🔄 새로고침
         </button>
