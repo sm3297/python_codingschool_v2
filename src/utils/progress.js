@@ -38,8 +38,9 @@ export function isStageClear(stageId, completedMissions = []) {
 }
 
 // 스테이지 해금 여부 확인
-export function isStageUnlocked(stageId, completedMissions = [], coins = 0) {
+export function isStageUnlocked(stageId, completedMissions = [], coins = 0, unlockedStages = []) {
   if (stageId === 1) return true;
+  if (unlockedStages.includes(stageId)) return true;
 
   const prevStageId = stageId - 1;
   const prevStageClear = isStageClear(prevStageId, completedMissions);
@@ -73,8 +74,8 @@ export function getStageTotalCoins(stageId) {
 }
 
 // 미션 완료 후 다음 스테이지 해금 가능 여부 확인
-export function checkNextStageUnlock(currentStageId, completedMissions, coins) {
+export function checkNextStageUnlock(currentStageId, completedMissions, coins, unlockedStages = []) {
   const nextStageId = currentStageId + 1;
   if (nextStageId > 8) return false;
-  return isStageUnlocked(nextStageId, completedMissions, coins);
+  return isStageUnlocked(nextStageId, completedMissions, coins, unlockedStages);
 }

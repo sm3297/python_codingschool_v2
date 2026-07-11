@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getUserById, resetUserProgress, deleteUser } from '../api/userApi';
+import { getUserById, resetUserProgress, deleteUser, updateUser } from '../api/userApi';
 import { getOverallProgress, calculateLevel, getTotalMissions } from '../utils/progress';
 import { stages } from '../data/stages';
 import ProgressBar from '../components/ProgressBar';
@@ -54,6 +54,27 @@ export default function StudentDetailForTeacher() {
       navigate('/teacher');
     } catch (err) {
       alert('삭제 중 문제가 생겼어요.');
+    }
+  };
+
+  const handleToggleStageLock = async (stageId) => {
+    try {
+      const currentUnlocked = student.unlockedStages || [1];
+      let newUnlocked;
+      if (currentUnlocked.includes(stageId)) {
+        if (stageId === 1) {
+          alert('1단계는 잠글 수 없습니다.');
+          return;
+        }
+        newUnlocked = currentUnlocked.filter(id => id !== stageId);
+      } else {
+        newUnlocked = [...currentUnlocked, stageId];
+      }
+      
+      const updated = await updateUser(student.id, { ...student, unlockedStages: newUnlocked });
+      setStudent(updated);
+    } catch (err) {
+      alert('스테이지 권한 변경 중 문제가 발생했습니다.');
     }
   };
 
@@ -164,6 +185,8 @@ export default function StudentDetailForTeacher() {
             const stageCompleted = stageMissionIds.filter(id => student.completedMissions.includes(id)).length;
             const stageTotal = stage.missions.length;
             const stagePercent = Math.round((stageCompleted / stageTotal) * 100);
+            
+            const isUnlocked = (student.unlockedStages || [1]).includes(stage.id);
 
             return (
               <div key={stage.id} style={{
@@ -171,14 +194,32 @@ export default function StudentDetailForTeacher() {
                 alignItems: 'center',
                 gap: '12px',
                 padding: '12px',
-                background: '#FAFAFF',
-                borderRadius: '8px'
+                background: isUnlocked ? '#FAFAFF' : '#f0f0f0',
+                borderRadius: '8px',
+                opacity: isUnlocked ? 1 : 0.6
               }}>
                 <span style={{ fontSize: '1.5rem' }}>{stage.icon}</span>
                 <div style={{ flex: 1 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '4px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.85rem', marginBottom: '4px' }}>
                     <span style={{ fontWeight: 600 }}>{stage.id}단계 · {stage.title}</span>
-                    <span style={{ color: '#546E7A' }}>{stageCompleted}/{stageTotal}</span>
+                    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                      <span style={{ color: '#546E7A' }}>{stageCompleted}/{stageTotal}</span>
+                      <button 
+                        onClick={() => handleToggleStageLock(stage.id)}
+                        style={{ 
+                          padding: '4px 8px', 
+                          fontSize: '0.75rem', 
+                          border: 'none', 
+                          borderRadius: '4px',
+                          cursor: 'pointer',
+                          background: isUnlocked ? '#e0e0e0' : '#4ECDC4',
+                          color: isUnlocked ? '#555' : 'white',
+                          fontWeight: 'bold'
+                        }}
+                      >
+                        {isUnlocked ? '잠그기 🔒' : '열어주기 🔓'}
+                      </button>
+                    </div>
                   </div>
                   <ProgressBar percent={stagePercent} className="mint" />
                 </div>

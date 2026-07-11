@@ -198,6 +198,7 @@ export default function StudentDashboard() {
             stage={stage}
             completedMissions={user.completedMissions}
             coins={user.coins || 0}
+            unlockedStages={user.unlockedStages || [1]}
             onLocked={() => setShowLockModal(true)}
           />
         ))}

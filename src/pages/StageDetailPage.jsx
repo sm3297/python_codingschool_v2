@@ -77,7 +77,7 @@ export default function StageDetailPage() {
 
   if (!user) return null;
 
-  const unlocked = isStageUnlocked(stage.id, user.completedMissions, user.coins || 0);
+  const unlocked = isStageUnlocked(stage.id, user.completedMissions, user.coins || 0, user.unlockedStages || [1]);
 
   if (!unlocked) {
     navigate('/student');

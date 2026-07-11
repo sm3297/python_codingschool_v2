@@ -2,9 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 import { getStageProgress, getStageTotalCoins, isStageUnlocked, isStageClear, getUnlockCoins } from '../utils/progress';
 
-export default function StageCard({ stage, completedMissions, coins, onLocked }) {
+export default function StageCard({ stage, completedMissions, coins, unlockedStages = [], onLocked }) {
   const navigate = useNavigate();
-  const unlocked = isStageUnlocked(stage.id, completedMissions, coins);
+  const unlocked = isStageUnlocked(stage.id, completedMissions, coins, unlockedStages);
   const cleared = isStageClear(stage.id, completedMissions);
   const progress = getStageProgress(stage.id, completedMissions);
   const totalCoins = getStageTotalCoins(stage.id);
