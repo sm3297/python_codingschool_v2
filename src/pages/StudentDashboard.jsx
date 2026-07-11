@@ -96,7 +96,7 @@ export default function StudentDashboard() {
     <div className="page-container animate-fade-in">
       {/* Welcome Card */}
       <div className="dashboard-welcome">
-        <h2>👋 {nickname}님, 오늘도 파이썬 미션을 클리어해볼까요?</h2>
+        <h2>{nickname}님, 오늘도 파이썬 미션을 클리어해볼까요?</h2>
         <div className="welcome-stats">
           <span>⭐ 레벨 {user.level || 1}</span>
           <span>🪙 플레이 코인 {user.coins || 0}</span>

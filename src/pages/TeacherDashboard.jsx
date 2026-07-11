@@ -77,7 +77,7 @@ export default function TeacherDashboard() {
   return (
     <div className="page-container animate-fade-in">
       <h1 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '8px' }}>
-        👩‍🏫 학생 관리 대시보드
+        학생 관리 대시보드
       </h1>
       <p style={{ color: '#546E7A', marginBottom: '32px' }}>
         학생들의 학습 진행 상황을 한눈에 확인하세요.
@@ -107,13 +107,13 @@ export default function TeacherDashboard() {
       {/* Actions */}
       <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '16px', gap: '10px' }}>
         <button className="btn btn-primary btn-sm" onClick={() => navigate('/student')}>
-          👁️ 학생용 화면(전체 미션) 미리보기
+          학생용 화면(전체 미션) 미리보기
         </button>
         <button className="btn" style={{ background: '#FF6B6B', color: 'white' }} onClick={() => navigate('/level-test')}>
-          🎓 레벨 테스트 미리보기
+          레벨 테스트 미리보기
         </button>
         <button className="btn btn-secondary btn-sm" onClick={loadStudents}>
-          🔄 새로고침
+          새로고침
         </button>
       </div>
 
