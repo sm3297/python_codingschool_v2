@@ -27,6 +27,13 @@ export default function MissionDetailPage() {
   const mission = stage?.missions.find(m => m.id === missionId);
 
   useEffect(() => {
+    if (user?.role === 'teacher' && mission?.codeCheckAnswer) {
+      setCodeCheckInput(mission.codeCheckAnswer);
+      setIsPracticeVerified(true);
+    }
+  }, [user, mission]);
+
+  useEffect(() => {
     loadUser();
   }, []);
 
@@ -221,7 +228,8 @@ export default function MissionDetailPage() {
     return null;
   }
 
-  const isComplete = (user.completedMissions || []).includes(mission.id);
+  const isTeacher = user.role === 'teacher';
+  const isComplete = (user.completedMissions || []).includes(mission.id) || isTeacher;
 
   return (
     <div className="page-container animate-fade-in">
@@ -338,7 +346,7 @@ export default function MissionDetailPage() {
         )}
 
         {/* Practice Verification */}
-        {mission.codeCheckQuestion && !isComplete && (
+        {mission.codeCheckQuestion && (!(user.completedMissions || []).includes(mission.id) || isTeacher) && (
           <div className="mission-section" style={{ borderLeft: '4px solid #6C5CE7' }}>
             <h2>🔐 코드 결과 확인</h2>
             <p style={{ marginBottom: '12px' }}>{mission.codeCheckQuestion}</p>
@@ -413,6 +421,7 @@ export default function MissionDetailPage() {
               quizzes={mission.quizzes} 
               onAllCorrect={setIsAllQuizCorrect} 
               onWrongAnswer={handleWrongAnswer}
+              prefilledAnswers={isTeacher}
             />
           </div>
           ) : (

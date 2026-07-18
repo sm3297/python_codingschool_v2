@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function QuizCard({ quizzes, onAllCorrect, onWrongAnswer }) {
+export default function QuizCard({ quizzes, onAllCorrect, onWrongAnswer, prefilledAnswers }) {
   const [answers, setAnswers] = useState({});
   const [feedback, setFeedback] = useState({});
   const [shuffledQuizzes, setShuffledQuizzes] = useState([]);
@@ -25,6 +25,26 @@ export default function QuizCard({ quizzes, onAllCorrect, onWrongAnswer }) {
     });
     setShuffledQuizzes(shuffled);
   }, [quizzes]);
+
+  useEffect(() => {
+    if (!quizzes || quizzes.length === 0) {
+      if (onAllCorrect) onAllCorrect(true);
+      return;
+    }
+    
+    if (prefilledAnswers) {
+      const initialAnswers = {};
+      const initialFeedback = {};
+      shuffledQuizzes.forEach((q, i) => {
+        initialAnswers[i] = q.answer;
+        initialFeedback[i] = true;
+      });
+      if (Object.keys(initialAnswers).length > 0) {
+        setAnswers(initialAnswers);
+        setFeedback(initialFeedback);
+      }
+    }
+  }, [prefilledAnswers, shuffledQuizzes, quizzes]);
 
   useEffect(() => {
     if (!quizzes || quizzes.length === 0) {
