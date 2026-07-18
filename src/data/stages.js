@@ -764,20 +764,26 @@ export const stages = [
         code: 'name = "지우"\nprint(name + "님, 환영합니다!")',
         explanation: [
           'name 변수에 "지우"라는 글자가 저장됩니다.',
-          "name + \"님, 환영합니다!\"는 두 글자를 이어 붙입니다.",
-          '결과는 "지우님, 환영합니다!"가 됩니다.'
+          "name + \"님, 환영합니다!\"는 두 글자를 이어 붙여줍니다."
         ],
         practice: "name 값을 자신의 이름으로 바꿔보세요.",
         challenge: '이름과 좋아하는 음식을 사용해서 "OO님은 OO을 좋아합니다!" 문장을 출력해보세요.',
+        codeCheckQuestion: "따라하기 코드를 실행하면 출력되는 결과를 정확히 입력하세요.",
+        codeCheckAnswer: "지우님, 환영합니다!",
         quizzes: [
           {
-            question: "문자열을 이어 붙일 때 사용하는 기호는?",
-            options: ["+", "-", "/"],
+            question: 'a = "Hello" 일 때, a + "World"의 결과는?',
+            options: ["HelloWorld", "Hello World", "Hello+World"],
             answer: 0
           },
           {
-            question: '"파이" + "썬"의 결과는?',
-            options: ["파이썬", "파이 썬", "오류"],
+            question: 'x = "3", y = "5" 일 때, x + y의 결과는?',
+            options: ["35", "8", "오류"],
+            answer: 0
+          },
+          {
+            question: 'name = "민수" 일 때, "안녕" + name + "아"의 결과는?',
+            options: ["안녕민수아", "안녕 민수 아", "오류"],
             answer: 0
           }
         ]
@@ -794,21 +800,27 @@ export const stages = [
         analogy: '"하" * 3은 "하" 스티커를 3장 붙이는 것과 같습니다.',
         code: 'print("=" * 20)\nprint("파이썬 시작!")\nprint("=" * 20)',
         explanation: [
-          '"=" * 20은 = 기호를 20번 반복합니다.',
-          '결과는 "===================="이 됩니다.',
+          '"=" * 20은 = 기호를 20번 반복해서 길게 이어 붙여줍니다.',
           "이렇게 예쁜 구분선을 만들 수 있어요."
         ],
         practice: "= 대신 *, -, # 같은 기호를 사용해보세요.",
         challenge: "나만의 예쁜 제목 상자를 만들어보세요.",
+        codeCheckQuestion: "코드를 실행했을 때 첫 번째 줄에 = 기호가 몇 개 출력되나요? (숫자만 입력)",
+        codeCheckAnswer: "20",
         quizzes: [
           {
-            question: '"안녕" * 3의 결과는?',
-            options: ["안녕안녕안녕", "안녕3", "오류"],
+            question: 'print("Go" * 2 + "!") 를 실행하면 무엇이 출력될까요?',
+            options: ["GoGo!", "Go2!", "Go Go !"],
             answer: 0
           },
           {
-            question: "문자열 반복에 사용하는 기호는?",
-            options: ["*", "/", "%"],
+            question: 'print("-" * 5) 를 실행하면 무엇이 출력될까요?',
+            options: ["-----", "-5", "- - - - -"],
+            answer: 0
+          },
+          {
+            question: 'print("AB" * 3) 을 실행하면 출력되는 글자 수는 총 몇 개일까요?',
+            options: ["6", "3", "5"],
             answer: 0
           }
         ]
@@ -827,19 +839,26 @@ export const stages = [
         explanation: [
           'color 변수에 "파란"이 저장됩니다.',
           'animal 변수에 "고양이"가 저장됩니다.',
-          '+ 기호로 이어 붙여서 "파란 고양이 용사"가 됩니다.'
+          '+ 기호를 사용하면 저장된 단어들과 새로운 단어를 모두 하나로 이어 붙일 수 있습니다.'
         ],
         practice: "color와 animal 값을 원하는 단어로 바꿔보세요.",
         challenge: "색깔, 동물, 직업을 조합해서 나만의 별명을 만들어보세요.",
+        codeCheckQuestion: "코드를 실행하면 출력되는 결과를 정확히 입력하세요.",
+        codeCheckAnswer: "파란 고양이 용사",
         quizzes: [
           {
-            question: "문자열 사이에 띄어쓰기를 넣으려면 무엇을 추가하면 좋을까요?",
-            options: ['" "', "0", "[]"],
+            question: 'a = "번개", b = "호랑이" 일 때 a + b의 결과는?',
+            options: ["번개호랑이", "번개 호랑이", "오류"],
             answer: 0
           },
           {
-            question: 'color = "빨간", animal = "여우"일 때 color + " " + animal의 결과는?',
-            options: ["빨간 여우", "빨간여우만 가능", "오류"],
+            question: 'x = "빨간", y = "사자" 일 때 x + " " + y + " 전사"의 결과는?',
+            options: ["빨간 사자 전사", "빨간사자전사", "빨간 사자전사"],
+            answer: 0
+          },
+          {
+            question: 'a = "코딩", b = "왕" 일 때 print(b + a + b)의 출력 결과는?',
+            options: ["왕코딩왕", "코딩왕왕", "왕왕코딩"],
             answer: 0
           }
         ]
@@ -857,20 +876,26 @@ export const stages = [
         code: 'name = "Python"\nprint(len(name))',
         explanation: [
           'name 변수에 "Python"이 저장됩니다.',
-          "len(name)은 name의 글자 수를 알려줍니다.",
-          '"Python"은 6글자이므로 6이 출력됩니다.'
+          "len(name)은 name에 들어있는 글자가 총 몇 개인지 숫자로 알려줍니다."
         ],
         practice: "name 값을 자신의 이름으로 바꿔서 글자 수를 확인해보세요.",
         challenge: "좋아하는 단어 3개의 글자 수를 각각 출력해보세요.",
+        codeCheckQuestion: "코드를 실행하면 출력되는 숫자를 입력하세요.",
+        codeCheckAnswer: "6",
         quizzes: [
           {
-            question: 'len("cat")의 결과는?',
-            options: ["3", "cat", "0"],
+            question: 'len("Hello World")의 결과는?',
+            options: ["11", "10", "2"],
             answer: 0
           },
           {
-            question: "글자 수를 확인하는 함수는?",
-            options: ["len()", "print()", "input()"],
+            question: 'word = "파이썬" 일 때 len(word)의 결과는?',
+            options: ["3", "6", "파이썬"],
+            answer: 0
+          },
+          {
+            question: 'len("A" * 4)의 결과는?',
+            options: ["4", "1", "오류"],
             answer: 0
           }
         ]
@@ -888,20 +913,27 @@ export const stages = [
         code: 'eye = "^"\nmouth = "_"\nface = eye + mouth + eye\n\nprint("웃는 얼굴:", face)\nprint("여러 명:", face * 5)',
         explanation: [
           "eye 변수에 '^'를 넣고, mouth 변수에 '_'를 넣습니다.",
-          "eye + mouth + eye 를 하면 '^' + '_' + '^' 가 되어 '^_^' 가 완성됩니다.",
-          "완성된 face를 * 5 하면 이모티콘이 5명으로 늘어납니다!"
+          "eye + mouth + eye 를 하면 변수에 들어있는 문자들이 차례대로 이어져 이모티콘 얼굴 모양이 완성됩니다.",
+          "완성된 face 문자열에 * 5 를 하면 이모티콘이 5번 반복해서 길게 늘어납니다!"
         ],
         practice: "eye 모양이나 mouth 모양을 다른 특수문자(예: 0, -, ~)로 바꿔보세요.",
         challenge: "나만의 이모티콘 부대를 만들어보세요. (예: 50명의 이모티콘이 줄지어 서 있는 모습 출력하기)",
+        codeCheckQuestion: "코드에서 face 변수에 저장되는 이모티콘을 정확히 입력하세요.",
+        codeCheckAnswer: "^_^",
         quizzes: [
           {
-            question: '"O" + "_" + "O" 를 실행하면 무엇이 나올까요?',
-            options: ["O_O", "OO_", "_OO"],
+            question: 'eye = ">", mouth = "_" 일 때 eye + mouth + eye의 결과는?',
+            options: [">_>", ">>_", "_>>"],
             answer: 0
           },
           {
-            question: "문자열 더하기와 곱하기를 같이 사용할 수 있나요?",
-            options: ["네, 마음대로 섞어 쓸 수 있어요.", "아니요, 하나만 써야 해요.", "에러가 납니다."],
+            question: 'face = "^_^" 일 때 print(face * 3)의 결과는?',
+            options: ["^_^^_^^_^", "^_^3", "^^__^^"],
+            answer: 0
+          },
+          {
+            question: 'a = "♥" * 2 + "_" + "♥" * 2 일 때 print(a)의 결과는?',
+            options: ["♥♥_♥♥", "♥2_♥2", "♥_♥♥_♥"],
             answer: 0
           }
         ]
@@ -924,15 +956,22 @@ export const stages = [
         ],
         practice: "자신의 이름과 나이를 변수에 넣고, f-string을 사용해 멋진 자기소개 문장을 출력해 보세요.",
         challenge: "게임 캐릭터의 체력(hp)과 마나(mp)를 변수로 만들고, f-string 한 줄로 상태창 메세지를 출력해 보세요.",
+        codeCheckQuestion: "코드를 실행하면 두 줄이 출력됩니다. 두 줄의 내용이 서로 같나요? (같다 / 다르다)",
+        codeCheckAnswer: "같다",
         quizzes: [
           {
-            question: "문자열 안에 변수를 편리하게 넣기 위해 문자열 맨 앞에 붙이는 알파벳은 무엇인가요?",
-            options: ["f", "s", "p"],
+            question: 'name = "철수", score = 95 일 때 f"{name}의 점수는 {score}점"의 결과는?',
+            options: ["철수의 점수는 95점", "{name}의 점수는 {score}점", "철수의 점수는 score점"],
             answer: 0
           },
           {
-            question: 'age = 10 일 때, f"나는 {age}살이다" 를 실행하면 어떻게 출력될까요?',
-            options: ["나는 10살이다", "나는 {age}살이다", "에러가 난다"],
+            question: 'x = 3, y = 7 일 때 f"{x} + {y} = {x + y}"의 결과는?',
+            options: ["3 + 7 = 10", "x + y = x + y", "3 + 7 = {x + y}"],
+            answer: 0
+          },
+          {
+            question: 'age = 14 일 때 "나는 {age}살"(f 없이)의 출력 결과는?',
+            options: ["나는 {age}살", "나는 14살", "오류 발생"],
             answer: 0
           }
         ]
@@ -954,15 +993,22 @@ export const stages = [
         ],
         practice: "위 코드를 실행해 글자가 어떻게 바뀌는지 확인해 보세요.",
         challenge: "문장에 있는 나쁜 욕설(예: '바보')을 찾아 예쁜 말(예: '천재')로 바꾸는 채팅 필터링 코드를 만들어보세요.",
+        codeCheckQuestion: "코드에서 replace() 실행 후 '에러'라는 단어가 총 몇 번 바뀌나요? (숫자만 입력)",
+        codeCheckAnswer: "2",
         quizzes: [
           {
-            question: "문자열에서 특정 글자를 찾아 다른 글자로 바꿔주는 마법의 함수는 무엇인가요?",
-            options: [".replace()", ".find()", ".change()"],
+            question: '"사과사과주스".replace("사과", "딸기")의 결과는?',
+            options: ["딸기딸기주스", "딸기사과주스", "사과딸기주스"],
             answer: 0
           },
           {
-            question: '"바나나나".replace("나", "다") 의 결과는 무엇일까요?',
-            options: ["바다다다", "바나다다", "바다나나"],
+            question: 'msg = "아아아" 일 때 msg.replace("아", "오")의 결과는?',
+            options: ["오오오", "오아아", "아아오"],
+            answer: 0
+          },
+          {
+            question: '"Hello".replace("x", "y")의 결과는?',
+            options: ["Hello", "오류 발생", "Hxllo"],
             answer: 0
           }
         ]
@@ -980,20 +1026,27 @@ export const stages = [
         analogy: "아파트의 층수를 셀 때, 1층이 아니라 0층(로비)부터 센다고 상상해 보세요.",
         code: 'secret_msg = "가나다라호마바사아산자차카"\n\n# 인덱싱을 사용해 5번째 글자와 10번째 글자를 찾아내세요!\nfirst_letter = secret_msg[???]  # 5번째 글자\nsecond_letter = secret_msg[???] # 10번째 글자\n\nprint("적의 기지는 바로... ", first_letter + second_letter, "입니다!")',
         explanation: [
-          "secret_msg[4] 는 0, 1, 2, 3, 4로 세기 때문에 실제로는 5번째 글자인 '호'를 꺼내옵니다.",
-          "문자열에서 하나씩 꺼내온 글자들도 서로 `+` 로 합칠 수 있습니다."
+          "secret_msg[4] 는 0, 1, 2, 3, 4로 세기 때문에 실제로는 앞에서 5번째 위치한 글자를 꺼내옵니다.",
+          "문자열에서 하나씩 꺼내온 글자들도 서로 `+` 기호를 사용해 새로운 단어로 합칠 수 있습니다."
         ],
         practice: "위 코드를 실행해 적의 기지 이름('호산')을 밝혀내세요.",
         challenge: "secret_msg의 맨 마지막 글자를 뽑아오려면 인덱스에 어떤 숫자를 넣어야 할까요? (-1 을 넣어보세요!)",
+        codeCheckQuestion: "???를 채우고 코드를 실행해서 적의 기지 이름 두 글자를 입력하세요.",
+        codeCheckAnswer: "호산",
         quizzes: [
           {
-            question: "문자열 word = 'PYTHON'이 있을 때, word[1] 을 출력하면 어떤 글자가 나올까요?",
-            options: ["Y", "P", "T"],
+            question: "word = 'CODING' 일 때 word[0] + word[3]의 결과는?",
+            options: ["CI", "CO", "CD"],
             answer: 0
           },
           {
-            question: "파이썬에서 리스트나 문자열의 순서를 셀 때, 가장 첫 번째 자리는 숫자 몇 번인가요?",
-            options: ["0번", "1번", "-1번"],
+            question: "msg = '비밀번호' 일 때 msg[-1]의 결과는?",
+            options: ["호", "비", "오류"],
+            answer: 0
+          },
+          {
+            question: "text = 'ABCDEF' 일 때 text[2] + text[5]의 결과는?",
+            options: ["CF", "BD", "CE"],
             answer: 0
           }
         ]
@@ -1016,15 +1069,22 @@ export const stages = [
         ],
         practice: "위 코드를 실행해 화려한 상태창을 확인하세요.",
         challenge: "용사의 레벨이 올랐습니다! hp_count를 10으로 늘리고, 레벨을 나타내는 노란 별(⭐) 줄도 추가해 보세요.",
+        codeCheckQuestion: "???를 채우고 코드를 실행했을 때 HP 하트와 MP 물방울의 총 개수를 숫자로 입력하세요.",
+        codeCheckAnswer: "8",
         quizzes: [
           {
-            question: "print('⭐' * 3 + '레벨') 의 출력 결과는 무엇일까요?",
-            options: ["⭐⭐⭐레벨", "⭐3레벨", "에러 발생"],
+            question: "hp = 3 일 때 print('HP: ' + '❤️' * hp)의 출력 결과는?",
+            options: ["HP: ❤️❤️❤️", "HP: ❤️3", "HP: ❤️ ❤️ ❤️"],
             answer: 0
           },
           {
-            question: "문자열끼리 더하기(+)와 문자에 숫자 곱하기(*)를 같이 쓰면 어떻게 되나요?",
-            options: ["문자가 반복된 후 서로 연결되어 하나의 긴 문장이 된다.", "컴퓨터가 헷갈려서 프로그램이 꺼진다.", "숫자로 변환되어 계산된다."],
+            question: "print('=' * 4 + '상태창' + '=' * 4)의 출력 결과는?",
+            options: ["====상태창====", "=4상태창=4", "==== 상태창 ===="],
+            answer: 0
+          },
+          {
+            question: "a = '⭐' * 2, b = '💧' * 3 일 때 print(a + b)의 결과는?",
+            options: ["⭐⭐💧💧💧", "⭐💧⭐💧💧", "⭐2💧3"],
             answer: 0
           }
         ]
@@ -1052,12 +1112,14 @@ export const stages = [
         code: 'foods = ["치킨", "피자", "떡볶이"]\n\nprint(foods)\nprint(foods[0])\nprint(foods[1])\nprint(foods[2])',
         explanation: [
           "foods라는 리스트에 3개의 음식 이름이 저장됩니다.",
-          "foods[0]은 첫 번째 값인 '치킨'을 가져옵니다.",
-          "foods[1]은 두 번째 값인 '피자'를 가져옵니다.",
+          "foods[0]은 리스트의 첫 번째 값을 가져옵니다.",
+          "foods[1]은 두 번째 값을 가져옵니다.",
           "리스트의 위치 번호는 0부터 시작합니다."
         ],
         practice: "foods 안의 음식 이름을 자신이 좋아하는 음식으로 바꿔보세요.",
         challenge: "좋아하는 게임, 음식, 과목 목록을 각각 리스트로 만들어보세요.",
+        codeCheckQuestion: "print(foods[1]) 코드가 출력하는 음식 이름은 무엇인가요?",
+        codeCheckAnswer: "피자",
         quizzes: [
           {
             question: "리스트를 만들 때 사용하는 괄호는?",
@@ -1089,6 +1151,8 @@ export const stages = [
         ],
         practice: "자신이 원하는 아이템 이름을 추가해보세요.",
         challenge: "빈 리스트를 만들고 좋아하는 음식 3개를 append()로 추가해보세요.",
+        codeCheckQuestion: "가장 마지막에 추가된 아이템 이름은 무엇인가요?",
+        codeCheckAnswer: "방패",
         quizzes: [
           {
             question: "리스트에 값을 추가하는 함수는?",
@@ -1114,11 +1178,13 @@ export const stages = [
         analogy: "상자 안의 물건을 꺼내서 다른 물건으로 바꾸거나(수정), 아예 상자 밖으로 던져버리는(삭제) 것과 같습니다.",
         code: 'items = ["물약", "녹슨 검", "지도"]\n\nitems[1] = "빛나는 성검"\nitems.remove("지도")\n\nprint(items)',
         explanation: [
-          "items[1]은 두 번째 아이템인 '녹슨 검'을 가리킵니다. 이것을 '빛나는 성검'으로 바꿉니다.",
+          "items[1] = '빛나는 성검'은 두 번째 자리에 있는 아이템을 '빛나는 성검'으로 바꿉니다.",
           "items.remove('지도')를 하면 리스트에서 '지도'를 찾아 삭제합니다."
         ],
         practice: "물약을 '대형 물약'으로 바꿔보세요.",
         challenge: "내가 좋아하는 과일 3개가 든 리스트를 만들고, 첫 번째 과일을 다른 과일로 수정한 뒤, 마지막 과일을 삭제해보세요.",
+        codeCheckQuestion: "코드를 실행하면 리스트에 남은 아이템은 총 몇 개인가요? (숫자만 입력)",
+        codeCheckAnswer: "2",
         quizzes: [
           {
             question: "items.remove('사과')의 역할은 무엇일까요?",
@@ -1144,11 +1210,13 @@ export const stages = [
         analogy: "len()은 글자 수를 세기도 하지만, 상자 안에 들어있는 물건의 개수를 세어주는 똑똑한 계수기이기도 해요.",
         code: 'my_bag = ["지도", "나침반", "물병", "초콜릿"]\n\nitem_count = len(my_bag)\nprint("내 가방 안의 아이템 개수는:", item_count, "개")',
         explanation: [
-          "len(my_bag)은 리스트 안에 아이템이 몇 개 있는지 세어줍니다.",
-          "여기서는 4개이므로 4를 반환하고, item_count 변수에 저장됩니다."
+          "len(my_bag)은 리스트 안에 아이템이 총 몇 개 있는지 세어줍니다.",
+          "계산된 개수는 item_count 변수에 저장됩니다."
         ],
         practice: "my_bag에 아이템을 더 추가하고, 아이템 개수가 어떻게 변하는지 확인해보세요.",
         challenge: "친구들의 이름이 5명 들어있는 리스트를 만들고, 친구가 총 몇 명인지 len()을 써서 출력해보세요.",
+        codeCheckQuestion: "출력되는 아이템 개수는 총 몇 개인가요? (숫자만 입력)",
+        codeCheckAnswer: "4",
         quizzes: [
           {
             question: "len([1, 2, 3, 4, 5])의 결과는 무엇일까요?",
@@ -1179,6 +1247,8 @@ export const stages = [
         ],
         practice: "위 코드의 에러를 고치려면 인덱스 번호를 어떻게 바꿔야 할까요? 올바른 숫자로 고쳐서 실행해보세요.",
         challenge: "아이템이 1개만 들어있는 리스트를 만들고, 에러가 나지 않게 첫 번째 아이템을 출력해보세요.",
+        codeCheckQuestion: "에러가 나지 않게 하려면 마지막 아이템을 출력하기 위해 snacks[?] 에 어떤 숫자를 넣어야 할까요?",
+        codeCheckAnswer: "2",
         quizzes: [
           {
             question: "리스트에 없는 번호를 출력하려고 할 때 발생하는 에러의 이름은?",
@@ -1209,6 +1279,8 @@ export const stages = [
         ],
         practice: "방어구(armors) 리스트를 하나 더 만들고, all_items에 방어구도 함께 더해보세요.",
         challenge: "자신이 좋아하는 음식 리스트와 음료수 리스트를 따로 만들고, 두 리스트를 합쳐서 '오늘의 메뉴' 리스트를 출력해보세요.",
+        codeCheckQuestion: "총 아이템 개수로 출력되는 숫자는 무엇인가요?",
+        codeCheckAnswer: "4",
         quizzes: [
           {
             question: "[1, 2] + [3, 4] 를 하면 결과는 어떻게 될까요?",
@@ -1240,6 +1312,8 @@ export const stages = [
         ],
         practice: "위 코드를 실행해 도감이 안전하게 바뀌었는지 확인해 보세요.",
         challenge: "여러분이 상상한 새로운 외계 생물 2마리를 추가하고, 마음에 들지 않는 생물 1마리를 더 지워보세요!",
+        codeCheckQuestion: "???를 올바르게 채우고 실행했을 때, 리스트의 마지막(세 번째)에 있는 생물 이름은 무엇인가요?",
+        codeCheckAnswer: "스타 래빗",
         quizzes: [
           {
             question: "리스트에서 특정 이름의 아이템을 콕 집어서 삭제하는 명령어는 무엇인가요?",
@@ -1271,6 +1345,8 @@ export const stages = [
         ],
         practice: "위 코드를 실행해 보석함이 원래대로 돌아왔는지 확인하세요.",
         challenge: "세 번째 자리의 '에메랄드'를 '황금 덩어리'로 바꾸려면 코드를 어떻게 써야 할까요? 직접 추가해 보세요!",
+        codeCheckQuestion: "???를 올바르게 채우고 실행한 뒤, 복구된 보석함 리스트의 두 번째 보석 이름을 입력하세요.",
+        codeCheckAnswer: "다이아몬드",
         quizzes: [
           {
             question: "리스트 my_list = ['사과', '바나나', '포도'] 가 있습니다. my_list[0] = '수박' 을 실행하면 리스트는 어떻게 변할까요?",
@@ -1539,6 +1615,8 @@ export const stages = [
         ],
         practice: "음료 가격도 추가해서 계산해보세요.",
         challenge: "가진 돈, 과자 가격, 음료 가격을 입력받고 남은 돈을 출력해보세요.",
+        codeCheckQuestion: "가진 돈이 5000이고 과자 가격이 1200일 때, 출력되는 남은 돈은 얼마인가요? (숫자만 입력)",
+        codeCheckAnswer: "3800",
         quizzes: [
           {
             question: "곱하기 연산자는 무엇인가요?",
@@ -1570,6 +1648,8 @@ export const stages = [
         ],
         practice: "치킨 가격, 떡볶이 가격 등으로 바꿔보세요.",
         challenge: "총 금액과 사람 수를 입력받고, 한 명당 금액과 남는 금액을 출력해보세요.",
+        codeCheckQuestion: "총 가격 20000과 4명을 입력했을 때 출력되는 값은 얼마인가요?",
+        codeCheckAnswer: "5000.0",
         quizzes: [
           {
             question: "나누기 연산자는 무엇인가요?",
@@ -1595,11 +1675,13 @@ export const stages = [
         analogy: "피자를 한 판씩 나눠주고 남은 조각을 세는 것과 같아요.",
         code: 'candies = 10\npeople = 3\n\nprint("한 사람당 가지는 사탕(몫):", candies // people)\nprint("남은 사탕(나머지):", candies % people)',
         explanation: [
-          "10 // 3 을 하면 3이 나옵니다. 한 사람당 3개씩 가질 수 있다는 뜻입니다.",
-          "10 % 3 을 하면 1이 나옵니다. 3개씩 나눠주고 1개가 남았다는 뜻입니다."
+          "candies // people 을 계산하여 한 사람이 가질 수 있는 사탕의 개수를 구합니다.",
+          "candies % people 을 계산하여 나눠주고 남은 사탕의 개수를 구합니다."
         ],
         practice: "사탕을 100개, 사람을 7명으로 바꿔서 계산 결과를 확인해 보세요.",
         challenge: "어떤 숫자를 입력받고, 그 숫자가 홀수인지 짝수인지 알아내는 방법은 무엇일까요? (힌트: 2로 나눈 나머지가 0이면 짝수!) 코드로 만들어보세요.",
+        codeCheckQuestion: "코드를 실행했을 때 남은 사탕(나머지)의 개수는 몇 개인가요?",
+        codeCheckAnswer: "1",
         quizzes: [
           {
             question: "나머지를 구하는 연산자는 무엇인가요?",
@@ -1630,6 +1712,8 @@ export const stages = [
         ],
         practice: "주석(#)을 하나씩 풀고 실행해서 빨간 에러 메시지를 확인해 보세요. 그리고 에러가 안 나게 코드를 고쳐 보세요.",
         challenge: "input()으로 숫자를 두 개 입력받아 나누기를 할 때, 두 번째 숫자가 0이면 에러가 나는 프로그램을 만들고 직접 에러를 경험해 보세요.",
+        codeCheckQuestion: "첫 번째 에러(money / people)의 종류는 무엇인가요?",
+        codeCheckAnswer: "ZeroDivisionError",
         quizzes: [
           {
             question: "어떤 숫자를 0으로 나누려고 할 때 발생하는 에러는 무엇일까요?",
@@ -1661,6 +1745,8 @@ export const stages = [
         ],
         practice: "과학 점수(sci)를 추가해서 총 4과목의 총점과 평균을 구하는 계산기로 업그레이드해 보세요.",
         challenge: "친구 3명의 체육 점수를 입력받아, 체육 점수의 합계와 평균, 그리고 나머지(%)가 얼마나 남는지 계산해 보세요.",
+        codeCheckQuestion: "국어 100, 영어 100, 수학 100을 입력했을 때 출력되는 평균(mean) 점수는 얼마인가요?",
+        codeCheckAnswer: "100.0",
         quizzes: [
           {
             question: "세 과목의 평균을 구할 때, 총점에서 얼마를 나누어야 할까요?",
@@ -1687,11 +1773,13 @@ export const stages = [
         analogy: "동전 교환기에서 1234원을 넣었을 때, 500원짜리로 최대한 바꾸고 '남은' 돈을 100원짜리로 바꾸는 원리와 똑같아요.",
         code: 'total_seconds = 100000\n\n# 1. 분과 초 분리하기 (60으로 나눈 나머지 = 남는 초)\nseconds = total_seconds ??? 60\ntotal_minutes = total_seconds ??? 60\n\n# 2. 시간과 분 분리하기\nminutes = total_minutes ??? 60\ntotal_hours = total_minutes ??? 60\n\n# 3. 일(day)과 시간 분리하기 (하루는 24시간)\nhours = total_hours ??? 24\ndays = total_hours ??? 24\n\nprint("구조대 도착까지 남은 시간:")\nprint(days, "일", hours, "시간", minutes, "분", seconds, "초")',
         explanation: [
-          "% 기호는 나누고 남은 찌꺼기(나머지)를 구합니다. 100000 % 60 을 하면 정확한 '초 부분만 남습니다.",
+          "% 기호는 나누고 남은 찌꺼기(나머지)를 구합니다. 100000 % 60 을 하면 정확한 '초' 부분만 남습니다.",
           "// 기호는 소수점을 버리고 정확한 몫만 구합니다. 100000 // 60 을 하면 총 '분'이 계산됩니다."
         ],
         practice: "위 코드를 실행해 10만 초가 며칠 몇 시간인지 구조대에게 알려주세요.",
         challenge: "만약 total_seconds가 1,000,000초(백만 초)라면 며칠이 걸릴지 변수를 수정해서 테스트해 보세요!",
+        codeCheckQuestion: "???를 올바른 연산자로 채우고 실행했을 때 출력되는 마지막 '초' 단위의 숫자는 얼마인가요?",
+        codeCheckAnswer: "40",
         quizzes: [
           {
             question: "10 % 3 을 파이썬에서 실행하면 어떤 결과가 나오나요?",
@@ -1718,11 +1806,13 @@ export const stages = [
         analogy: "식당에서 줄을 설 때, 예약한 손님(괄호와 곱셈)이 일반 손님(덧셈)보다 먼저 입장하는 것과 같아요.",
         code: 'rock_hint = 5 + 3 * 2\nprint("벽화에 적힌 수식 (5 + 3 * 2) 의 결과는:", rock_hint)\n\n# 괄호를 쳐서 5와 3을 먼저 더하도록 수정해보세요!\nmagic_hint = ???5 + 3??? * 2\nprint("괄호를 친 수식 의 결과는:", magic_hint)\n\n# 진짜 피라미드의 비밀번호 수식을 완성해보세요!\npassword = 10 ??? 4 ??? 2 ??? 5 ??? (3 ??? 1)\nprint("피라미드 문을 여는 최종 비밀번호는:", password)',
         explanation: [
-          "5 + 3 * 2 에서 곱하기가 먼저 실행되므로 5 + 6이 되어 11이 나옵니다.",
-          "비밀번호 수식에서 (3 - 1)이 가장 먼저 계산되어 2가 되고, 그 다음 나누기와 곱하기가 계산된 후 마지막으로 더하기 빼기가 이루어집니다."
+          "5 + 3 * 2 에서는 어떤 연산이 먼저 실행되는지 확인해보세요.",
+          "비밀번호 수식에서 괄호 안의 연산이 가장 먼저 계산됩니다. 그 다음 나누기와 곱하기가 계산된 후 마지막으로 더하기 빼기가 이루어집니다."
         ],
         practice: "비밀번호 수식을 눈으로 먼저 계산해 본 뒤, 코드를 실행해 파이썬의 계산 결과와 자신의 계산이 일치하는지 확인해 보세요.",
         challenge: "password 변수의 수식에 괄호를 추가해서, 정답이 완전히 다른 숫자(예: 30 이상)가 나오게 식의 우선순위를 조작해 보세요!",
+        codeCheckQuestion: "magic_hint에 괄호를 제대로 치고 코드를 실행했을 때 출력되는 괄호를 친 수식의 결과는 얼마인가요? (숫자만 입력)",
+        codeCheckAnswer: "16",
         quizzes: [
           {
             question: "파이썬에서 10 + 10 * 2 를 계산하면 결과는 무엇일까요?",
@@ -1765,6 +1855,8 @@ export const stages = [
         ],
         practice: "키 기준을 130, 150 등으로 바꿔보세요.",
         challenge: '나이를 입력받고, 14살 이상이면 "중학생 이상입니다", 아니면 "아직 중학생이 아닐 수 있어요"를 출력해보세요.',
+        codeCheckQuestion: "키(height)에 130을 입력하면 어떤 문장이 출력될까요?",
+        codeCheckAnswer: "아쉽지만 탈 수 없어요.",
         quizzes: [
           {
             question: "조건을 검사할 때 사용하는 명령어는?",
@@ -1797,6 +1889,8 @@ export const stages = [
         ],
         practice: "합격 기준을 70점이나 80점으로 바꿔보세요.",
         challenge: '90점 이상이면 "최고예요!", 60점 이상이면 "합격!", 아니면 "다시 도전!"을 출력해보세요.\n단, elif는 심화 기능으로 사용해도 됩니다.',
+        codeCheckQuestion: "점수에 60을 입력하면 어떤 단어가 출력될까요?",
+        codeCheckAnswer: "합격!",
         quizzes: [
           {
             question: "score >= 60은 어떤 뜻인가요?",
@@ -1828,6 +1922,8 @@ export const stages = [
         ],
         practice: "elif 조건을 하나 더 추가해서 70점 이상일 때 'C 등급'을, 그 이하면 'D 등급'을 주도록 코드를 수정해보세요.",
         challenge: "나이를 입력받고, 13세 미만은 '어린이', 13세~19세는 '청소년', 20세 이상은 '성인'이라고 출력하는 프로그램을 만들어보세요.",
+        codeCheckQuestion: "점수에 85를 입력하면 어떤 등급이 출력될까요? (예: A 등급입니다!)",
+        codeCheckAnswer: "B 등급입니다.",
         quizzes: [
           {
             question: "조건이 3개 이상일 때, if와 else 사이에 들어가는 문법은?",
@@ -1858,6 +1954,8 @@ export const stages = [
         ],
         practice: "and를 or로 바꾸면 결과가 어떻게 달라질까요? 코드를 수정해서 테스트해보세요.",
         challenge: "VIP 회원이거나(or), 오늘이 생일인 사람에게는 '무료 쿠폰 발급'을, 아니면 '일반 회원'을 출력하는 프로그램을 만들어보세요.",
+        codeCheckQuestion: "and 연산자를 쓸 때 두 조건 중 하나만 참일 경우 if 문 안의 코드가 실행될까요? (O/X 로 입력)",
+        codeCheckAnswer: "X",
         quizzes: [
           {
             question: "두 가지 조건 중 '하나라도' 맞으면 실행되게 하려면 어떤 연산자를 써야 하나요?",
@@ -1888,6 +1986,8 @@ export const stages = [
         ],
         practice: "위 코드의 에러를 없애기 위해 올바르게 들여쓰기(스페이스바 4칸)를 맞춰 보세요.",
         challenge: "if와 else 모두 올바른 들여쓰기를 맞춰서, 나이가 18세 이상이면 성인 영화를, 아니면 애니메이션을 보라고 출력해보세요.",
+        codeCheckQuestion: "들여쓰기(Indentation)가 잘못되었을 때 발생하는 에러의 이름은 무엇인가요?",
+        codeCheckAnswer: "IndentationError",
         quizzes: [
           {
             question: "if문 다음 줄에 띄어쓰기를 하지 않으면 발생하는 에러는 무엇인가요?",
@@ -1918,6 +2018,8 @@ export const stages = [
         ],
         practice: "각 문(1, 2, 3)을 선택했을 때 나오는 이야기를 나만의 상상력으로 더 재미있게 바꿔보세요.",
         challenge: "if문 안에 또 if문을 넣어서(중첩 if문), 2번 문을 선택한 뒤 보물 상자를 열 것인지(열기/그냥가기) 한 번 더 선택하게 만들어보세요!",
+        codeCheckQuestion: "2번 문을 선택했을 때 발견하는 것은 무엇인가요? (예: 몬스터)",
+        codeCheckAnswer: "보물 상자",
         quizzes: [
           {
             question: "input()으로 받은 값과 숫자 1을 비교하려면 if choice == ? 라고 써야 할까요?",
@@ -1949,6 +2051,8 @@ export const stages = [
         ],
         practice: "age, name_length, password 변수의 값을 올바르게 수정하여 스핑크스의 3개의 문을 모두 열어보세요.",
         challenge: "스핑크스가 좋아하는 암호를 맞추지 못했을 때(else) 체력을 깎는 변수 `hp = hp - 10` 를 추가해 보세요!",
+        codeCheckQuestion: "두 번째 if문의 ???에 들어갈 숫자는 무엇일까요? (이름이 3글자 이상인지 묻는 스핑크스의 질문을 참고하세요)",
+        codeCheckAnswer: "3",
         quizzes: [
           {
             question: "if문 안에 또 다른 if문을 넣을 때 가장 주의해야 할 점은 무엇인가요?",
@@ -1976,10 +2080,12 @@ export const stages = [
         code: 'bravery = int(input("당신의 용기 점수는? (0~100): "))\nsmart = int(input("당신의 지능 점수는? (0~100): "))\n\nprint("모자: 흠... 아주 어렵군... 너의 기숙사는...")\n\n# 용기와 지능 모두(and) 80 이상이면 래번클로-그리핀도르!\nif bravery >= 80 ??? smart >= 80:\n    print("용기와 지능을 모두 갖춘 천재! [래번클로-그리핀도르 융합반]!")\n# 용기가 90 이상이거나(or) 지능이 30 미만이면 그리핀도르!\nelif bravery >= 90 ??? smart < 30:\n    print("지능은 조금 부족해도 용기가 넘치는군! [그리핀도르]!")\n# 용기가 50 미만이고(and) 지능이 90 이상이면 래번클로!\nelif bravery < 50 ??? smart >= 90:\n    print("겁은 많지만 아주 똑똑해! [래번클로]!")\nelse:\n    print("착하고 성실한 학생이군! [후플푸프]!")',
         explanation: [
           "bravery >= 80 and smart >= 80 은 두 점수가 모두 80점 이상일 때만 참(True)이 됩니다.",
-          "bravery >= 90 or smart < 30 은 용기가 90점 이상이거나, 지능이 30점 미만이면 참(True)이 됩니다. 둘 중 하나만 만족해도 됩니다."
+          "or 연산자를 쓰면 양쪽 조건 중 하나만 만족해도 참(True)이 됩니다."
         ],
         practice: "코드를 실행하고 용기 40, 지능 95를 입력해서 래번클로에 배정되는지 확인해 보세요.",
         challenge: "새로운 조건(예: 두 점수의 합이 50 이하인 경우)을 추가하여 '슬리데린' 기숙사가 나올 수 있도록 코드를 수정해 보세요!",
+        codeCheckQuestion: "두 번째 조건(elif)의 ???에 들어가야 할 올바른 논리 연산자는 무엇인가요? (영어 소문자로 입력)",
+        codeCheckAnswer: "or",
         quizzes: [
           {
             question: "A and B 의 특징으로 알맞은 것은?",
@@ -2021,6 +2127,8 @@ export const stages = [
         ],
         practice: "반복 횟수를 3번, 10번으로 바꿔보세요.",
         challenge: "자신이 좋아하는 문장을 7번 출력하는 프로그램을 만들어보세요.",
+        codeCheckQuestion: "range(5)를 사용하면 코드는 총 몇 번 반복되나요? (숫자만 입력)",
+        codeCheckAnswer: "5",
         quizzes: [
           {
             question: "정해진 횟수만큼 반복할 때 사용할 수 있는 문법은?",
@@ -2053,6 +2161,8 @@ export const stages = [
         ],
         practice: "정답 숫자를 원하는 숫자로 바꿔보세요.",
         challenge: '정답보다 작은 수를 입력하면 "더 큰 수를 입력해보세요", 큰 수를 입력하면 "더 작은 수를 입력해보세요"라고 알려주는 게임으로 바꿔보세요.',
+        codeCheckQuestion: "while 반복문을 강제로 멈출 때 사용하는 명령어는 무엇인가요? (영어 소문자로 입력)",
+        codeCheckAnswer: "break",
         quizzes: [
           {
             question: "반복을 멈추는 명령어는?",
@@ -2084,6 +2194,8 @@ export const stages = [
         ],
         practice: "카운트다운을 10초부터 시작하도록 코드를 고쳐보세요.",
         challenge: "1초씩 기다렸다가 출력되게 할 수도 있어요! 구글링을 통해 파이썬의 time.sleep(1)을 찾아보고 적용해 보세요.",
+        codeCheckQuestion: "카운트다운이 종료된 후 출력되는 마지막 단어는 무엇인가요?",
+        codeCheckAnswer: "발사!",
         quizzes: [
           {
             question: "count = count - 1 코드를 실수로 지워버리면 어떤 일이 일어날까요?",
@@ -2109,12 +2221,13 @@ export const stages = [
         analogy: "서랍장(리스트)의 칸을 위에서부터 차례대로 하나씩 열어보면서, 들어있는 물건을 확인하는 것과 같아요.",
         code: 'inventory = ["검", "방패", "포션", "지도"]\n\nprint("내 가방에 있는 물건들:")\nfor item in inventory:\n    print("-", item)',
         explanation: [
-          "inventory 리스트에 4개의 아이템이 있습니다.",
-          "for item in inventory: 를 만나면, 첫 번째 물건인 '검'이 item 변수에 담기고 print가 실행됩니다.",
-          "두 번째, 세 번째, 네 번째 물건까지 자동으로 모두 꺼낸 뒤에 for문이 끝납니다."
+          "for item in inventory: 를 만나면, 리스트의 첫 번째 물건부터 차례대로 item 변수에 담겨 print가 실행됩니다.",
+          "리스트 안의 모든 물건을 차례로 하나씩 꺼낸 뒤에 for문이 끝납니다."
         ],
         practice: "가방에 새로운 아이템을 2개 더 추가하고, for문이 새 아이템들도 잘 꺼내는지 확인해보세요.",
         challenge: "친구 이름이 5명 들어있는 리스트를 만들고, for문을 써서 '안녕, OOO아!' 라고 5명 모두에게 인사하는 코드를 짜보세요.",
+        codeCheckQuestion: "inventory 리스트의 요소들을 차례로 꺼낼 때, 첫 번째로 item 변수에 담기는 물건은 무엇인가요?",
+        codeCheckAnswer: "검",
         quizzes: [
           {
             question: "for item in [1, 2, 3]: 아래에 print(item)을 쓰면 몇 번 출력될까요?",
@@ -2145,6 +2258,8 @@ export const stages = [
         ],
         practice: "직접 무한루프를 실행해보고 당황해보세요! 그리고 터미널에서 강제 종료(단축키 Ctrl+C 등)하는 법을 익힌 뒤, 코드의 주석(#)을 풀어서 무한루프를 탈출해 보세요.",
         challenge: "무한루프 안에 input()을 넣어서 사용자가 어떤 글자를 입력해도 계속 다시 물어보는 앵무새 프로그램을 만들어보세요. (단, 사용자가 '그만'이라고 입력하면 break로 탈출해야 합니다.)",
+        codeCheckQuestion: "while 반복문의 조건이 영원히 참(True)이라서 끝나지 않는 상황을 무엇이라고 부르나요?",
+        codeCheckAnswer: "무한루프",
         quizzes: [
           {
             question: "프로그램이 끝나지 않고 영원히 실행되는 현상을 무엇이라고 하나요?",
@@ -2170,12 +2285,14 @@ export const stages = [
         analogy: "지금까지 모은 모든 아이템(변수, 입력, 형변환, 연산자, 반복문, print 포매팅)을 합쳐서 보스 몬스터를 물리치는 최종 필살기를 쏘는 것입니다!",
         code: 'dan = int(input("출력할 구구단의 단수를 입력하세요 (예: 3): "))\n\nprint("---", dan, "단 ---")\nfor i in range(1, 10):\n    result = dan * i\n    print(dan, "X", i, "=", result)',
         explanation: [
-          "dan 변수에 입력받은 숫자(예: 3)를 넣습니다.",
-          "range(1, 10)은 1부터 9까지의 숫자를 하나씩 i에 넣어줍니다.",
-          "반복문 안에서 3 X 1 = 3, 3 X 2 = 6 ... 이렇게 9번 출력하게 됩니다."
+          "dan 변수에 입력받은 숫자를 저장합니다.",
+          "range(1, 10)은 1부터 9까지의 숫자를 하나씩 만들어 i에 넣어줍니다.",
+          "반복문 안에서 각 숫자를 곱해 구구단 결과를 출력합니다."
         ],
         practice: "코드를 실행하고 7, 8, 9 등 다양한 숫자를 입력해서 구구단이 잘 나오는지 확인해 보세요.",
         challenge: "for문 안에 또 for문을 넣는 '중첩 반복문'에 대해 인터넷으로 찾아보고, 입력 없이 2단부터 9단까지 한 번에 모두 출력하는 전체 구구단 프로그램을 짜보세요!",
+        codeCheckQuestion: "range(1, 10)이 만들어내는 숫자들 중 마지막 숫자는 얼마인가요? (숫자만 입력)",
+        codeCheckAnswer: "9",
         quizzes: [
           {
             question: "range(1, 10)은 어떤 숫자들을 만들어 낼까요?",
@@ -2208,6 +2325,8 @@ export const stages = [
         ],
         practice: "위 코드를 실행하여 7777을 찾고 멈추는지 확인하세요.",
         challenge: "secret_password를 999999(백만) 이상으로 바꾸고 코드를 실행해 보세요. 파이썬이 얼마나 빨리 백만 번을 반복하는지 놀라게 될 것입니다!",
+        codeCheckQuestion: "무한 루프를 만들기 위해 while ???: 의 빈칸에 들어가야 할 올바른 값은 무엇인가요? (첫 글자 대문자로 입력)",
+        codeCheckAnswer: "True",
         quizzes: [
           {
             question: "while 반복문이 실행되던 중 break를 만나면 어떻게 되나요?",
@@ -2234,12 +2353,13 @@ export const stages = [
         analogy: "매 층마다 설계도(공식)에 따라 빈 공간과 벽돌의 개수를 정확히 맞춰 쌓아 올리는 정교한 건축과 같아요.",
         code: 'floor = 5\n\nprint("--- 마법의 별 피라미드 ---")\n\n# 1부터 floor 까지 반복하도록 range를 완성하세요!\nfor i in range(1, ???):\n    # 공백 문자열을 곱셈으로 만드세요!\n    space = " " * (floor - i)\n    \n    # 별 문자열을 곱셈으로 만드세요!\n    star = "★" * (2 * i - 1)\n    \n    # 공백과 별을 이어붙여서 출력하세요!\n    print(??? + ???)\n\nprint("피라미드 완성!")',
         explanation: [
-          "i 가 1일 때: 공백은 4칸, 별은 1개 출력",
-          "i 가 2일 때: 공백은 3칸, 별은 3개 출력",
-          "이런 식으로 i 가 증가함에 따라 자동으로 비율이 맞춰지며 완벽한 삼각형 모양이 나타납니다."
+          "i 가 1일 때는 어떤 모양이 그려지는지 곰곰이 상상해보세요.",
+          "i 가 증가함에 따라 자동으로 공백과 별의 비율이 맞춰지며 피라미드 모양이 만들어집니다."
         ],
         practice: "위 코드를 실행해 예쁜 5층짜리 피라미드가 잘 그려지는지 확인하세요.",
         challenge: "floor 변수를 10이나 20으로 아주 크게 바꾸어 보세요! 거대한 별 피라미드를 감상할 수 있습니다.",
+        codeCheckQuestion: "range(1, ???) 에서 floor=5일 때, 1부터 5까지 반복하게 하려면 빈칸에 들어갈 코드는 무엇일까요? (공백없이 입력. 예: floor+10)",
+        codeCheckAnswer: "floor+1",
         quizzes: [
           {
             question: "위 코드에서 i가 3일 때, 2 * i - 1 은 얼마인가요? (이 숫자만큼 별이 찍힙니다)",

@@ -24,8 +24,6 @@ export default function QuizCard({ quizzes, onAllCorrect, onWrongAnswer }) {
       };
     });
     setShuffledQuizzes(shuffled);
-    setAnswers({});
-    setFeedback({});
   }, [quizzes]);
 
   useEffect(() => {

@@ -19,6 +19,9 @@ export default function MissionDetailPage() {
   const [isAllQuizCorrect, setIsAllQuizCorrect] = useState(false);
   const [penaltyCoins, setPenaltyCoins] = useState(0);
   const [penaltyToast, setPenaltyToast] = useState({ show: false, key: 0 });
+  const [isPracticeVerified, setIsPracticeVerified] = useState(false);
+  const [codeCheckInput, setCodeCheckInput] = useState('');
+  const [codeCheckWrong, setCodeCheckWrong] = useState(false);
 
   const stage = stages.find(s => s.id === parseInt(stageId));
   const mission = stage?.missions.find(m => m.id === missionId);
@@ -35,6 +38,12 @@ export default function MissionDetailPage() {
       return () => clearTimeout(timer);
     }
   }, [penaltyToast.key, penaltyToast.show]);
+
+  useEffect(() => {
+    setIsPracticeVerified(false);
+    setCodeCheckInput('');
+    setCodeCheckWrong(false);
+  }, [missionId]);
 
   const loadUser = async () => {
     try {
@@ -158,6 +167,16 @@ export default function MissionDetailPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleCodeCheck = () => {
+    if (!mission?.codeCheckAnswer) return;
+    if (codeCheckInput.trim() === mission.codeCheckAnswer.trim()) {
+      setIsPracticeVerified(true);
+      setCodeCheckWrong(false);
+    } else {
+      setCodeCheckWrong(true);
+    }
+  };
+
   const handleNextMission = () => {
     setShowModal(false);
     if (!stage) return;
@@ -196,13 +215,13 @@ export default function MissionDetailPage() {
 
   if (!user) return null;
 
-  const unlocked = isStageUnlocked(stage.id, user.completedMissions, user.coins || 0, user.unlockedStages || [1]);
+  const unlocked = isStageUnlocked(stage.id, user.completedMissions || [], user.coins || 0, user.unlockedStages || [1]);
   if (!unlocked) {
     navigate('/student');
     return null;
   }
 
-  const isComplete = user.completedMissions.includes(mission.id);
+  const isComplete = (user.completedMissions || []).includes(mission.id);
 
   return (
     <div className="page-container animate-fade-in">
@@ -251,49 +270,33 @@ export default function MissionDetailPage() {
         </div>
 
         {/* Concept */}
-        <div className="mission-section">
-          <h2>💡 개념 설명</h2>
-          <p style={{ whiteSpace: 'pre-line' }}>{mission.concept}</p>
-        </div>
+        {mission.concept && (
+          <div className="mission-section">
+            <h2>💡 개념 설명</h2>
+            <p style={{ whiteSpace: 'pre-line' }}>{mission.concept}</p>
+          </div>
+        )}
 
         {/* Analogy */}
-        <div className="mission-section" style={{ borderLeft: '4px solid #FFD166' }}>
-          <h2>🧩 쉬운 비유</h2>
-          <p style={{ whiteSpace: 'pre-line' }}>{mission.analogy}</p>
-        </div>
+        {mission.analogy && (
+          <div className="mission-section" style={{ borderLeft: '4px solid #FF9F43' }}>
+            <h2>🤔 쉬운 비유</h2>
+            <p style={{ whiteSpace: 'pre-line' }}>{mission.analogy}</p>
+          </div>
+        )}
 
         {/* Code Example */}
-        <div className="mission-section">
-          <h2>💻 따라하기 코드</h2>
-          <div className="code-block">
-            <button className="copy-btn" onClick={handleCopy}>
-              {copied ? '✓ 복사됨' : '📋 복사'}
-            </button>
-            <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>{mission.code}</pre>
+        {mission.code && (
+          <div className="mission-section" style={{ borderLeft: '4px solid #4ECDC4' }}>
+            <h2>💻 따라하기 코드</h2>
+            <div className="code-block">
+              <button className="copy-btn" onClick={handleCopy}>
+                {copied ? '✓ 복사됨' : '📋 복사'}
+              </button>
+              <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>{mission.code}</pre>
+            </div>
           </div>
-        </div>
-
-        {/* Code Explanation */}
-        <div className="mission-section">
-          <h2>📝 코드 한 줄씩 설명</h2>
-          <ul>
-            {mission.explanation.map((line, i) => (
-              <li key={i}>{line}</li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Practice */}
-        <div className="mission-section" style={{ borderLeft: '4px solid #4ECDC4' }}>
-          <h2>✏️ 직접 바꿔보기</h2>
-          <p>{mission.practice}</p>
-        </div>
-
-        {/* Challenge */}
-        <div className="mission-section" style={{ borderLeft: '4px solid #FF9F43' }}>
-          <h2>🔥 도전 미션</h2>
-          <p style={{ whiteSpace: 'pre-line' }}>{mission.challenge}</p>
-        </div>
+        )}
 
         {/* Practice Sites */}
         <div className="mission-section">
@@ -322,16 +325,105 @@ export default function MissionDetailPage() {
           </div>
         </div>
 
+        {/* Code Explanation */}
+        {mission.explanation && (
+          <div className="mission-section">
+            <h2>📝 코드 설명</h2>
+            <ul>
+              {mission.explanation.map((line, i) => (
+                <li key={i}>{line}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Practice Verification */}
+        {mission.codeCheckQuestion && !isComplete && (
+          <div className="mission-section" style={{ borderLeft: '4px solid #6C5CE7' }}>
+            <h2>🔐 코드 결과 확인</h2>
+            <p style={{ marginBottom: '12px' }}>{mission.codeCheckQuestion}</p>
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <input
+                type="text"
+                value={codeCheckInput}
+                onChange={(e) => {
+                  setCodeCheckInput(e.target.value);
+                  setCodeCheckWrong(false);
+                }}
+                onKeyDown={(e) => { if (e.key === 'Enter') handleCodeCheck(); }}
+                placeholder="실행 결과를 입력하세요"
+                disabled={isPracticeVerified}
+                style={{
+                  flex: 1,
+                  padding: '12px 16px',
+                  borderRadius: '10px',
+                  border: '2px solid ' + (isPracticeVerified ? '#4ECDC4' : codeCheckWrong ? '#FF6B6B' : '#ddd'),
+                  fontSize: '1rem',
+                  outline: 'none',
+                  background: isPracticeVerified ? '#f0fff4' : '#fff',
+                  color: '#333'
+                }}
+              />
+              {!isPracticeVerified && (
+                <button
+                  className="btn btn-primary"
+                  onClick={handleCodeCheck}
+                  style={{ whiteSpace: 'nowrap', padding: '12px 24px' }}
+                >
+                  확인
+                </button>
+              )}
+            </div>
+            {isPracticeVerified && (
+              <div style={{ color: '#4ECDC4', fontWeight: 600, marginTop: '10px', fontSize: '0.95rem' }}>
+                ✅ 실습 확인 완료! 아래 퀴즈를 풀어보세요.
+              </div>
+            )}
+            {codeCheckWrong && (
+              <div style={{ color: '#FF6B6B', fontWeight: 600, marginTop: '10px', fontSize: '0.95rem' }}>
+                ❌ 틀렸어요! 코드를 직접 실행해보고 정확한 결과를 입력해주세요.
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Practice */}
+        {mission.practice && (
+          <div className="mission-section" style={{ borderLeft: '4px solid #4ECDC4' }}>
+            <h2>✏️ 직접 바꿔보기</h2>
+            <p>{mission.practice}</p>
+          </div>
+        )}
+
+        {/* Challenge */}
+        {mission.challenge && (
+          <div className="mission-section" style={{ borderLeft: '4px solid #FF9F43' }}>
+            <h2>🔥 도전 미션</h2>
+            <p style={{ whiteSpace: 'pre-line' }}>{mission.challenge}</p>
+          </div>
+        )}
+
         {/* Quiz */}
-        <div className="mission-section">
-          <h2>❓ 확인 퀴즈</h2>
-          <QuizCard 
-            key={mission.id} 
-            quizzes={mission.quizzes} 
-            onAllCorrect={setIsAllQuizCorrect} 
-            onWrongAnswer={handleWrongAnswer}
-          />
-        </div>
+        {mission.quizzes && mission.quizzes.length > 0 && (
+          (!mission.codeCheckQuestion || isPracticeVerified || isComplete) ? (
+          <div className="mission-section">
+            <h2>❓ 확인 퀴즈</h2>
+            <QuizCard 
+              key={mission.id} 
+              quizzes={mission.quizzes} 
+              onAllCorrect={setIsAllQuizCorrect} 
+              onWrongAnswer={handleWrongAnswer}
+            />
+          </div>
+          ) : (
+          <div className="mission-section" style={{ opacity: 0.4, pointerEvents: 'none', userSelect: 'none' }}>
+            <h2>🔒 확인 퀴즈</h2>
+            <p style={{ textAlign: 'center', padding: '20px 0', fontSize: '1rem', color: '#888' }}>
+              위의 코드 결과 확인을 완료하면 퀴즈가 열립니다.
+            </p>
+          </div>
+          )
+        )}
 
         {/* Complete Button */}
         <div style={{ textAlign: 'center', margin: '40px 0 20px' }}>
@@ -366,9 +458,13 @@ export default function MissionDetailPage() {
                 <button
                   className="btn btn-primary"
                   onClick={() => {
-                    navigate(`/student/stage/${stageId}/mission/${nextMission.id}`);
-                    window.scrollTo(0, 0);
-                    loadUser();
+                    if (isComplete) {
+                      navigate(`/student/stage/${stageId}/mission/${nextMission.id}`);
+                      window.scrollTo(0, 0);
+                      loadUser();
+                    } else {
+                      alert('🎯 미션 완료 버튼을 먼저 클릭하세요!');
+                    }
                   }}
                 >
                   다음 미션 →
